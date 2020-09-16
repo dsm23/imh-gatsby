@@ -1,55 +1,55 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent } from 'react';
 import { graphql, PageRendererProps } from 'gatsby';
-import clsx from 'clsx';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS } from '@contentful/rich-text-types';
+import {
+  documentToReactComponents,
+  Options,
+} from '@contentful/rich-text-react-renderer';
+import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
+import CardGroup from '../components/card';
 import Divisor from '../components/divisor';
 import Image from '../components/image';
 
 import {
   ContentfulCardBodyRichTextNodeContent,
+  ContentfulWelcome,
   Query,
 } from '../../graphql-types';
 
-import styles from './index.module.scss';
+import 'twin.macro';
 
 interface Props extends PageRendererProps {
   data: Query;
 }
 
-const Text: FunctionComponent = ({ children }) => (
-  <div className="card-body">
-    <p className="card-text">{children}</p>
-  </div>
-);
-
 const ListItem: FunctionComponent = ({ children }) => (
-  <li className="list-group-item">{children}</li>
+  <>
+    {/* <div tw="mt-4 border-t bg-blue-500 w-full" /> */}
+    <li className="list-group-item">{children}</li>
+  </>
 );
 
-const H4: FunctionComponent = ({ children }) => (
-  <div className="card-body">
-    <h4 className="card-title">{children}</h4>
-  </div>
-);
-
-const options = {
+const options: Options = {
+  renderMark: {
+    [MARKS.BOLD]: text => (
+      <span tw="text-2xl font-bold text-blue-700">{text}</span>
+    ),
+  },
   renderNode: {
-    [BLOCKS.LIST_ITEM]: (_: any, children: ReactNode) => {
+    [BLOCKS.LIST_ITEM]: (_, children) => {
       return <ListItem>{children}</ListItem>;
     },
-    [BLOCKS.PARAGRAPH]: (_: any, children: ReactNode) => {
-      return <Text>{children}</Text>;
+    [BLOCKS.PARAGRAPH]: (_, children) => {
+      return <p tw="mt-4">{children}</p>;
     },
-    [BLOCKS.HEADING_4]: (_: any, children: ReactNode) => {
-      return <H4>{children}</H4>;
+    [BLOCKS.HEADING_4]: (_, children) => {
+      return <h4 tw="text-2xl font-bold">{children}</h4>;
     },
-    [BLOCKS.UL_LIST]: (_: any, children: ReactNode) => {
-      return <ul className="list-group list-group-flush">{children}</ul>;
+    [BLOCKS.UL_LIST]: (_, children) => {
+      return <ul tw="ml-5 list-disc">{children}</ul>;
     },
     [BLOCKS.EMBEDDED_ASSET]: (node: ContentfulCardBodyRichTextNodeContent) => {
       return <Image contentfulId={node?.data?.target?.sys?.contentful_id} />;
@@ -58,10 +58,10 @@ const options = {
   // renderText: text => text.replace('!', '?'),
 };
 
-const welcomeOptions = {
+const welcomeOptions: Options = {
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (_: any, children: ReactNode) => {
-      return <p className="text-primary">{children}</p>;
+    [BLOCKS.PARAGRAPH]: (_, children) => {
+      return <p tw="text-gray-900 mt-4">{children}</p>;
     },
   },
 };
@@ -69,7 +69,7 @@ const welcomeOptions = {
 const Home: FunctionComponent<Props> = ({ data, location }) => {
   const cards = data?.allContentfulCard?.nodes ?? [];
 
-  const welcome = data?.contentfulWelcome;
+  const welcome = data?.contentfulWelcome as ContentfulWelcome;
 
   return (
     <Layout location={location}>
@@ -77,55 +77,57 @@ const Home: FunctionComponent<Props> = ({ data, location }) => {
         description="Home page for IMH. UK distributor for power quality devices. Powerside and Dranetz"
         title="Home"
       />
-      <section
-        id="imh"
-        className="py-2 py-md-4 d-md-flex align-items-md-center"
-      >
-        <div className={styles.flexItem}>
-          <h1>{welcome?.header}</h1>
+      <section id="imh" tw="py-2 md:py-4 md:flex md:items-center">
+        <div tw="w-full md:w-1/2">
+          <h1 tw="text-4xl">{welcome?.header}</h1>
           {documentToReactComponents(welcome?.body?.json, welcomeOptions)}
         </div>
+
         <Image
-          className={clsx(
-            'd-none d-md-block m-md-5 rounded-lg shadow-lg',
-            styles.flexItem,
-          )}
+          tw="hidden md:(block w-1/2 m-5) rounded-lg shadow-lg"
           contentfulId={welcome?.welcomePic?.contentful_id}
         />
       </section>
       <Divisor />
-      <section id="powerside" className="py-2 py-md-4 ">
-        <h1>Partnered with Powerside</h1>
-        <div className="d-md-flex align-items-md-center">
+      <section id="powerside" tw="py-2 md:py-4 ">
+        <h1 tw="text-4xl">Partnered with Powerside</h1>
+        <div tw="md:(flex items-center)">
           <Image
-            className={clsx('d-block', styles.flexItem)}
+            tw="block w-full md:w-1/2"
             contentfulId="7sKYayeWgbxL0d549lviAc"
           />
-          <div className={styles.flexItem}>
-            <h2>PQUBE 3</h2>
-            <h3>The World's best power quality recorder</h3>
-            <p>
+          <div tw="w-full md:w-1/2">
+            <h2 tw="mt-4 text-3xl">PQUBE 3</h2>
+            <h3 tw="mt-4 text-xl">The World's best power quality recorder</h3>
+            <p tw="mt-3">
               Real-time analysis of voltage and current connections with daily,
               weekly and monthly trends
             </p>
-            <p>
+            <p tw="mt-3">
               remote monitoring via smartphone, tablet and desktop - on the web
               without additional software
             </p>
-            <p>Detailed reports with self-selectable content, eg EN 50160</p>
-            <p>Intuitive installation and operation of power analyzers</p>
+            <p tw="mt-3">
+              Detailed reports with self-selectable content, eg EN 50160
+            </p>
+            <p tw="mt-3">
+              Intuitive installation and operation of power analyzers
+            </p>
           </div>
         </div>
       </section>
       <Divisor />
-      <section id="pqube" className="py-2 py-md-4 ">
+      <section id="pqube" tw="py-2 md:py-4">
         <h3>
-          PQUBE 3 ANALYZERS OFFER SECURITY, MOBILITY AND SAVINGS POTENTIAL IN
-          VARIOUS AREAS OF APPLICATION AND INDUSTRIES.
+          PQUBE3 ANALYSERS OFFER SECURITY OF SUPPLY AND SAVINGS POTENTIAL IN
+          VARIOUS APPLICATIONS.
         </h3>
-        <div className="d-flex flex-wrap">
-          {cards.map(({ body }) => (
-            <div className={clsx('card', styles.flexCard)}>
+        <CardGroup>
+          {cards.map(({ body, entryUnused }) => (
+            <div
+              tw="px-4 py-6 rounded overflow-hidden shadow-lg w-full sm:w-1/2 md:w-1/3"
+              key={entryUnused}
+            >
               {documentToReactComponents(
                 {
                   ...(body?.json ?? {}),
@@ -135,14 +137,14 @@ const Home: FunctionComponent<Props> = ({ data, location }) => {
               )}
             </div>
           ))}
-        </div>
+        </CardGroup>
       </section>
       <Divisor />
-      <section id="advice" className="py-2 py-md-4">
-        <h3>Great products alone are not everything.</h3>
-        <p>
+      <section id="advice" tw="py-2 md:py-4">
+        <h3 tw="text-2xl">Great products deserve great backup</h3>
+        <p tw="text-gray-900">
           We offer advice, hardware and software configuration, measurement data
-          evaluation and training.
+          evaluation, training and post-sales support that is second to none.
         </p>
       </section>
     </Layout>
@@ -151,7 +153,7 @@ const Home: FunctionComponent<Props> = ({ data, location }) => {
 
 export default Home;
 
-export const pageQuery = graphql<Query>`
+export const pageQuery = graphql`
   query HomeQuery {
     contentfulWelcome(contentful_id: { eq: "6hcNRRouGi4uD9MGL9WCBx" }) {
       header
@@ -164,6 +166,7 @@ export const pageQuery = graphql<Query>`
     }
     allContentfulCard {
       nodes {
+        entryUnused
         body {
           json
         }

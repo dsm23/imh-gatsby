@@ -1,0 +1,44 @@
+/// <reference types="jest" />
+
+import React from 'react';
+import { render } from '@testing-library/react';
+import {
+  createMemorySource,
+  createHistory,
+  LocationProvider,
+  useLocation,
+} from '@reach/router';
+
+import Contact from '../../src/pages/contact';
+
+jest.mock('gatsby');
+
+// for some types of tests you want a memory source
+let source = createMemorySource('/not-contact');
+let history = createHistory(source);
+
+const ContactWrapper = () => {
+  const location = useLocation();
+
+  return <Contact location={location} />;
+};
+
+const renderable = (
+  <LocationProvider history={history}>
+    <ContactWrapper />
+  </LocationProvider>
+);
+
+describe(`Contact`, () => {
+  it(`it renders`, () => {
+    const { baseElement } = render(renderable);
+
+    expect(baseElement).toBeTruthy();
+  });
+
+  it(`matches snapshot`, () => {
+    const { asFragment } = render(renderable);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+});

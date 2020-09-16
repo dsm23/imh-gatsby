@@ -594,15 +594,14 @@ export type ContentfulCardBodyRichTextNodeContentDataTargetFilterInput = {
 };
 
 export type ContentfulCardBodyRichTextNodeContentDataTargetSys = {
+  space?: Maybe<ContentfulCardBodyRichTextNodeContentDataTargetSysSpace>;
   id?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
-  space?: Maybe<ContentfulCardBodyRichTextNodeContentDataTargetSysSpace>;
   createdAt?: Maybe<Scalars['Date']>;
   updatedAt?: Maybe<Scalars['Date']>;
   environment?: Maybe<ContentfulCardBodyRichTextNodeContentDataTargetSysEnvironment>;
   revision?: Maybe<Scalars['Int']>;
+  contentful_id?: Maybe<Scalars['String']>;
 };
 
 
@@ -644,15 +643,14 @@ export type ContentfulCardBodyRichTextNodeContentDataTargetSysEnvironmentSysFilt
 };
 
 export type ContentfulCardBodyRichTextNodeContentDataTargetSysFilterInput = {
+  space?: Maybe<ContentfulCardBodyRichTextNodeContentDataTargetSysSpaceFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
   type?: Maybe<StringQueryOperatorInput>;
-  linkType?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-  space?: Maybe<ContentfulCardBodyRichTextNodeContentDataTargetSysSpaceFilterInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
   environment?: Maybe<ContentfulCardBodyRichTextNodeContentDataTargetSysEnvironmentFilterInput>;
   revision?: Maybe<IntQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulCardBodyRichTextNodeContentDataTargetSysSpace = {
@@ -3776,14 +3774,14 @@ export type Query = {
   allSite: SiteConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
-  contentfulWelcomeBodyRichTextNode?: Maybe<ContentfulWelcomeBodyRichTextNode>;
-  allContentfulWelcomeBodyRichTextNode: ContentfulWelcomeBodyRichTextNodeConnection;
-  contentfulCardBodyRichTextNode?: Maybe<ContentfulCardBodyRichTextNode>;
-  allContentfulCardBodyRichTextNode: ContentfulCardBodyRichTextNodeConnection;
   contentfulAsset?: Maybe<ContentfulAsset>;
   allContentfulAsset: ContentfulAssetConnection;
+  contentfulWelcomeBodyRichTextNode?: Maybe<ContentfulWelcomeBodyRichTextNode>;
+  allContentfulWelcomeBodyRichTextNode: ContentfulWelcomeBodyRichTextNodeConnection;
   contentfulWelcome?: Maybe<ContentfulWelcome>;
   allContentfulWelcome: ContentfulWelcomeConnection;
+  contentfulCardBodyRichTextNode?: Maybe<ContentfulCardBodyRichTextNode>;
+  allContentfulCardBodyRichTextNode: ContentfulCardBodyRichTextNodeConnection;
   contentfulCard?: Maybe<ContentfulCard>;
   allContentfulCard: ContentfulCardConnection;
   contentfulPageContentRichTextNode?: Maybe<ContentfulPageContentRichTextNode>;
@@ -3967,46 +3965,6 @@ export type QueryAllImageSharpArgs = {
 };
 
 
-export type QueryContentfulWelcomeBodyRichTextNodeArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  content?: Maybe<ContentfulWelcomeBodyRichTextNodeContentFilterListInput>;
-  nodeType?: Maybe<StringQueryOperatorInput>;
-  body?: Maybe<StringQueryOperatorInput>;
-  json?: Maybe<JsonQueryOperatorInput>;
-};
-
-
-export type QueryAllContentfulWelcomeBodyRichTextNodeArgs = {
-  filter?: Maybe<ContentfulWelcomeBodyRichTextNodeFilterInput>;
-  sort?: Maybe<ContentfulWelcomeBodyRichTextNodeSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryContentfulCardBodyRichTextNodeArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  nodeType?: Maybe<StringQueryOperatorInput>;
-  content?: Maybe<ContentfulCardBodyRichTextNodeContentFilterListInput>;
-  body?: Maybe<StringQueryOperatorInput>;
-  json?: Maybe<JsonQueryOperatorInput>;
-};
-
-
-export type QueryAllContentfulCardBodyRichTextNodeArgs = {
-  filter?: Maybe<ContentfulCardBodyRichTextNodeFilterInput>;
-  sort?: Maybe<ContentfulCardBodyRichTextNodeSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
 export type QueryContentfulAssetArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -4037,6 +3995,26 @@ export type QueryAllContentfulAssetArgs = {
 };
 
 
+export type QueryContentfulWelcomeBodyRichTextNodeArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  content?: Maybe<ContentfulWelcomeBodyRichTextNodeContentFilterListInput>;
+  nodeType?: Maybe<StringQueryOperatorInput>;
+  body?: Maybe<StringQueryOperatorInput>;
+  json?: Maybe<JsonQueryOperatorInput>;
+};
+
+
+export type QueryAllContentfulWelcomeBodyRichTextNodeArgs = {
+  filter?: Maybe<ContentfulWelcomeBodyRichTextNodeFilterInput>;
+  sort?: Maybe<ContentfulWelcomeBodyRichTextNodeSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
 export type QueryContentfulWelcomeArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -4058,6 +4036,26 @@ export type QueryContentfulWelcomeArgs = {
 export type QueryAllContentfulWelcomeArgs = {
   filter?: Maybe<ContentfulWelcomeFilterInput>;
   sort?: Maybe<ContentfulWelcomeSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryContentfulCardBodyRichTextNodeArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  nodeType?: Maybe<StringQueryOperatorInput>;
+  content?: Maybe<ContentfulCardBodyRichTextNodeContentFilterListInput>;
+  body?: Maybe<StringQueryOperatorInput>;
+  json?: Maybe<JsonQueryOperatorInput>;
+};
+
+
+export type QueryAllContentfulCardBodyRichTextNodeArgs = {
+  filter?: Maybe<ContentfulCardBodyRichTextNodeFilterInput>;
+  sort?: Maybe<ContentfulCardBodyRichTextNodeSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -4705,11 +4703,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___policy'
   | 'pluginCreator___pluginOptions___policy___userAgent'
   | 'pluginCreator___pluginOptions___policy___allow'
-  | 'pluginCreator___pluginOptions___ignore'
-  | 'pluginCreator___pluginOptions___whitelist'
-  | 'pluginCreator___pluginOptions___fonts'
-  | 'pluginCreator___pluginOptions___fonts___family'
-  | 'pluginCreator___pluginOptions___fonts___variants'
   | 'pluginCreator___pluginOptions___googleAnalytics___trackingId'
   | 'pluginCreator___pluginOptions___googleAnalytics___cookieDomain'
   | 'pluginCreator___pluginOptions___googleAnalytics___cookieName'
@@ -4719,7 +4712,9 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___background_color'
   | 'pluginCreator___pluginOptions___theme_color'
   | 'pluginCreator___pluginOptions___display'
+  | 'pluginCreator___pluginOptions___lang'
   | 'pluginCreator___pluginOptions___icon'
+  | 'pluginCreator___pluginOptions___icon_options___purpose'
   | 'pluginCreator___pluginOptions___cache_busting_mode'
   | 'pluginCreator___pluginOptions___include_favicon'
   | 'pluginCreator___pluginOptions___legacy'
@@ -4923,11 +4918,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___policy'
   | 'pluginOptions___policy___userAgent'
   | 'pluginOptions___policy___allow'
-  | 'pluginOptions___ignore'
-  | 'pluginOptions___whitelist'
-  | 'pluginOptions___fonts'
-  | 'pluginOptions___fonts___family'
-  | 'pluginOptions___fonts___variants'
   | 'pluginOptions___googleAnalytics___trackingId'
   | 'pluginOptions___googleAnalytics___cookieDomain'
   | 'pluginOptions___googleAnalytics___cookieName'
@@ -4937,7 +4927,9 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___background_color'
   | 'pluginOptions___theme_color'
   | 'pluginOptions___display'
+  | 'pluginOptions___lang'
   | 'pluginOptions___icon'
+  | 'pluginOptions___icon_options___purpose'
   | 'pluginOptions___cache_busting_mode'
   | 'pluginOptions___include_favicon'
   | 'pluginOptions___legacy'
@@ -5067,16 +5059,15 @@ export type SitePluginPluginOptions = {
   host?: Maybe<Scalars['String']>;
   sitemap?: Maybe<Scalars['String']>;
   policy?: Maybe<Array<Maybe<SitePluginPluginOptionsPolicy>>>;
-  ignore?: Maybe<Array<Maybe<Scalars['String']>>>;
-  whitelist?: Maybe<Array<Maybe<Scalars['String']>>>;
-  fonts?: Maybe<Array<Maybe<SitePluginPluginOptionsFonts>>>;
   googleAnalytics?: Maybe<SitePluginPluginOptionsGoogleAnalytics>;
   short_name?: Maybe<Scalars['String']>;
   start_url?: Maybe<Scalars['String']>;
   background_color?: Maybe<Scalars['String']>;
   theme_color?: Maybe<Scalars['String']>;
   display?: Maybe<Scalars['String']>;
+  lang?: Maybe<Scalars['String']>;
   icon?: Maybe<Scalars['String']>;
+  icon_options?: Maybe<SitePluginPluginOptionsIcon_Options>;
   cache_busting_mode?: Maybe<Scalars['String']>;
   include_favicon?: Maybe<Scalars['Boolean']>;
   legacy?: Maybe<Scalars['Boolean']>;
@@ -5094,16 +5085,15 @@ export type SitePluginPluginOptionsFilterInput = {
   host?: Maybe<StringQueryOperatorInput>;
   sitemap?: Maybe<StringQueryOperatorInput>;
   policy?: Maybe<SitePluginPluginOptionsPolicyFilterListInput>;
-  ignore?: Maybe<StringQueryOperatorInput>;
-  whitelist?: Maybe<StringQueryOperatorInput>;
-  fonts?: Maybe<SitePluginPluginOptionsFontsFilterListInput>;
   googleAnalytics?: Maybe<SitePluginPluginOptionsGoogleAnalyticsFilterInput>;
   short_name?: Maybe<StringQueryOperatorInput>;
   start_url?: Maybe<StringQueryOperatorInput>;
   background_color?: Maybe<StringQueryOperatorInput>;
   theme_color?: Maybe<StringQueryOperatorInput>;
   display?: Maybe<StringQueryOperatorInput>;
+  lang?: Maybe<StringQueryOperatorInput>;
   icon?: Maybe<StringQueryOperatorInput>;
+  icon_options?: Maybe<SitePluginPluginOptionsIcon_OptionsFilterInput>;
   cache_busting_mode?: Maybe<StringQueryOperatorInput>;
   include_favicon?: Maybe<BooleanQueryOperatorInput>;
   legacy?: Maybe<BooleanQueryOperatorInput>;
@@ -5111,20 +5101,6 @@ export type SitePluginPluginOptionsFilterInput = {
   cacheDigest?: Maybe<StringQueryOperatorInput>;
   precachePages?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
-};
-
-export type SitePluginPluginOptionsFonts = {
-  family?: Maybe<Scalars['String']>;
-  variants?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-export type SitePluginPluginOptionsFontsFilterInput = {
-  family?: Maybe<StringQueryOperatorInput>;
-  variants?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SitePluginPluginOptionsFontsFilterListInput = {
-  elemMatch?: Maybe<SitePluginPluginOptionsFontsFilterInput>;
 };
 
 export type SitePluginPluginOptionsGoogleAnalytics = {
@@ -5139,6 +5115,14 @@ export type SitePluginPluginOptionsGoogleAnalyticsFilterInput = {
   cookieDomain?: Maybe<StringQueryOperatorInput>;
   cookieName?: Maybe<StringQueryOperatorInput>;
   anonymize?: Maybe<BooleanQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsIcon_Options = {
+  purpose?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsIcon_OptionsFilterInput = {
+  purpose?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsPolicy = {
@@ -5199,7 +5183,7 @@ export type QueryForAssetQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type QueryForAssetQuery = { allContentfulAsset: { nodes: Array<(
       Pick<ContentfulAsset, 'contentful_id' | 'description'>
-      & { fluid?: Maybe<GatsbyContentfulFluid_TracedSvgFragment> }
+      & { fluid?: Maybe<GatsbyContentfulFluid_WithWebpFragment> }
     )> } };
 
 export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
@@ -5212,21 +5196,16 @@ export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
 
 export type Unnamed_2_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
-export type QueryForSvgAssetQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type QueryForSvgAssetQuery = { allContentfulAsset: { nodes: Array<(
-      Pick<ContentfulAsset, 'contentful_id' | 'description'>
-      & { file?: Maybe<Pick<ContentfulAssetFile, 'contentType' | 'fileName' | 'url'>> }
-    )> } };
-
 export type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type HomeQueryQuery = { contentfulWelcome?: Maybe<(
     Pick<ContentfulWelcome, 'header'>
     & { body?: Maybe<Pick<ContentfulWelcomeBodyRichTextNode, 'json'>>, welcomePic?: Maybe<Pick<ContentfulAsset, 'contentful_id'>> }
-  )>, allContentfulCard: { nodes: Array<{ body?: Maybe<Pick<ContentfulCardBodyRichTextNode, 'json'>> }> } };
+  )>, allContentfulCard: { nodes: Array<(
+      Pick<ContentfulCard, 'entryUnused'>
+      & { body?: Maybe<Pick<ContentfulCardBodyRichTextNode, 'json'>> }
+    )> } };
 
 export type PageBySlugQueryVariables = Exact<{
   slug: Scalars['String'];

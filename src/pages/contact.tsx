@@ -1,11 +1,13 @@
 import React, { FunctionComponent } from 'react';
-import clsx from 'clsx';
 import { PageRendererProps } from 'gatsby';
+
+import Anchor from '../components/anchor';
+import FlexItem from '../components/flex-item';
 import Layout from '../components/layout';
-import Map from '../components/locationMap';
+import Map from '../components/location-map';
 import SEO from '../components/seo';
 
-import styles from './contact.module.scss';
+import 'twin.macro';
 
 const Contact: FunctionComponent<PageRendererProps> = ({ location }) => (
   <Layout location={location}>
@@ -13,20 +15,21 @@ const Contact: FunctionComponent<PageRendererProps> = ({ location }) => (
       description="Contact page for IMH. UK distributor for power quality devices. Powerside and Dranetz"
       title="Contact"
     />
-    <h1>Contact Us</h1>
-    <div className="d-md-flex justify-content-between w-100 position-relative">
-      <address className={clsx('w-100', styles.address)}>
+    <h1 tw="text-black text-4xl">Contact Us</h1>
+    <div tw="md:flex justify-between w-full relative">
+      <FlexItem as="address" tw="text-gray-900" basis="25%">
         <p>Off Millhead Way</p>
         <p>8 Roach View</p>
-        <p>Purdeys Industrial Estate</p> <p>Rochford</p>
+        <p>Purdeys Industrial Estate</p>
+        <p>Rochford</p>
         <p>Essex</p> <p>SS4 1LB</p>
         <p>
-          Email: <a href="mailto:sales@imh.co.uk">sales@imh.co.uk</a>
+          Email: <Anchor href="mailto:sales@imh.co.uk">sales@imh.co.uk</Anchor>
         </p>
         <p>
-          Telephone: <a href="tel:+441702545429">01702 545429</a>
+          Telephone: <Anchor href="tel:+441702545429">01702 545429</Anchor>
         </p>
-      </address>
+      </FlexItem>
       <Map />
     </div>
   </Layout>

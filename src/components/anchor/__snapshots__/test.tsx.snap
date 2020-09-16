@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Anchor matches snapshot 1`] = `
+<DocumentFragment>
+  <a
+    class="css-fd0fo2"
+    href="/foo"
+  >
+    This is an anchor tag 
+  </a>
+</DocumentFragment>
+`;

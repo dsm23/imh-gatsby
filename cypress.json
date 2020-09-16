@@ -1,0 +1,11 @@
+{
+  "baseUrl": "http://localhost:8000/",
+  "integrationFolder": "cypress/e2e",
+  "lighthouse": {
+    "performance": 40,
+    "accessibility": 90,
+    "best-practices": 90,
+    "seo": 90,
+    "pwa": 50
+  }
+}

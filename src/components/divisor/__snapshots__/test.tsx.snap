@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Anchor matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <svg
+      preserveAspectRatio="xMinYMid slice"
+      viewBox="0 300 1155 100"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <clippath
+          id="__lottie_element_10"
+        >
+          <rect
+            height="700"
+            width="1155"
+            x="0"
+            y="0"
+          />
+        </clippath>
+      </defs>
+      <g
+        clip-path="url(#__lottie_element_10)"
+      >
+        <g
+          opacity="1"
+          style="display: block;"
+          transform="matrix(4.895999908447266,0,0,4.895999908447266,577.6270141601562,349.7330017089844)"
+        >
+          <g
+            opacity="1"
+            transform="matrix(1,0,0,1,0,0)"
+          >
+            <path
+              d="M0 0"
+              fill-opacity="0"
+              stroke="rgb(181,219,255)"
+              stroke-linecap="butt"
+              stroke-linejoin="miter"
+              stroke-miterlimit="4"
+              stroke-opacity="1"
+              stroke-width="0.852"
+            />
+          </g>
+        </g>
+        <g
+          opacity="1"
+          style="display: block;"
+          transform="matrix(0.0004896000027656555,0,0,0.0004896000027656555,574.6110229492188,347.20001220703125)"
+        >
+          <g
+            opacity="1"
+            transform="matrix(1,0,0,1,0,0)"
+          >
+            <path
+              d=" M0,-3.936500072479248 C2.1725544929504395,-3.936500072479248 3.936500072479248,-2.1725544929504395 3.936500072479248,0 C3.936500072479248,2.1725544929504395 2.1725544929504395,3.936500072479248 0,3.936500072479248 C-2.1725544929504395,3.936500072479248 -3.936500072479248,2.1725544929504395 -3.936500072479248,0 C-3.936500072479248,-2.1725544929504395 -2.1725544929504395,-3.936500072479248 0,-3.936500072479248z"
+              fill="rgb(143,228,255)"
+              fill-opacity="1"
+            />
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,42 @@
+/// <reference types="jest" />
+
+import React from 'react';
+import { useStaticQuery } from 'gatsby';
+import { render } from '@testing-library/react';
+
+import LocationMap from '.';
+
+const renderable = <LocationMap />;
+
+jest.mock('gatsby');
+jest.mock('react-map-gl', () => ({
+  default: () => <div />,
+  NavigationControl: () => <div />,
+  FullscreenControl: () => <div />,
+  ScaleControl: () => <div />,
+  GeolocateControl: () => <div />,
+}));
+
+beforeEach(() => {
+  useStaticQuery.mockReturnValueOnce({
+    site: {
+      siteMetadata: {
+        mapboxToken: 'someToken',
+      },
+    },
+  });
+});
+
+describe(`LocationMap`, () => {
+  it(`it renders`, () => {
+    const { baseElement } = render(renderable);
+
+    expect(baseElement).toBeTruthy();
+  });
+
+  it(`matches snapshot`, () => {
+    const { asFragment } = render(renderable);
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+});

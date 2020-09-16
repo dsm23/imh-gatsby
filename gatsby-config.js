@@ -41,11 +41,11 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-postcss`,
+    `gatsby-plugin-emotion`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-graphql-codegen`,
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-typescript`,
     // {
     //   resolve: `gatsby-plugin-typescript`,
@@ -68,32 +68,9 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        ignore: ['google-fonts/'],
-        // printRejected: true,
-        whitelist: [
-          'body',
-          'html',
-        ],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Nunito Sans`,
-            variants: [`400`, `600`, `700`],
-          },
-        ],
-      },
-    },
-    {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
         googleAnalytics: {
-          trackingId: 'YOUR_GOOGLE_ANALYTICS_TRACKING_ID',
           trackingId: process.env.GA_TRACKING_ID,
           cookieDomain: 'imh.co.uk',
           cookieName: 'imh-ga',
@@ -107,10 +84,17 @@ module.exports = {
         name: `IMH Technologies`,
         short_name: `IMH`,
         start_url: `/`,
-        background_color: `#319795`,
-        theme_color: `#319795`,
+        background_color: `#434190`,
+        theme_color: `#434190`,
         display: `standalone`,
+        lang: `en`,
         icon: `src/images/wifi.svg`, // This path is relative to the root of the site.
+        icon_options: {
+          // For all the options available, please see:
+          // https://developer.mozilla.org/en-US/docs/Web/Manifest
+          // https://w3c.github.io/manifest/#purpose-member
+          purpose: `maskable any`,
+        },
       },
     },
     
