@@ -1,14 +1,11 @@
 import React, { CSSProperties } from 'react';
 import { render } from '@testing-library/react';
 
-import { matchers } from 'jest-emotion';
+import 'jest-styled-components';
 
 import 'twin.macro';
 
 import FlexItem from '.';
-
-// Add the custom matchers provided by 'jest-emotion'
-expect.extend(matchers);
 
 const renderable = (width: CSSProperties['flexBasis']) => (
   <div tw="flex">

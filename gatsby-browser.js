@@ -1,5 +1,5 @@
-import 'tailwindcss/dist/base.min.css';
 import 'typeface-inter';
+import './src/styles.css'
 
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(

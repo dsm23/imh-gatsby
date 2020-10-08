@@ -8,21 +8,25 @@ import { Link, GatsbyLinkProps } from 'gatsby';
 // import { useKey } from 'react-use';
 import tw, { styled } from 'twin.macro';
 
-interface Props {
-  active?: boolean;
+interface StyleProps {
+  isActive?: boolean;
   as?: ElementType | keyof JSX.IntrinsicAttributes;
 }
 
-const StyledAnchor = styled.a<Props>(({ active }) => [
+type Props = GatsbyLinkProps<{}> & StyleProps;
+
+const StyledAnchor = styled.a<StyleProps>(({ isActive }) => [
   tw`block text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:(outline-none bg-gray-100) transition duration-150 ease-in-out`,
-  active &&
+  isActive &&
     tw`text-white bg-indigo-700 hover:bg-indigo-500 focus:(outline-none bg-indigo-600)`,
 ]);
 
-const func = (node: HTMLAnchorElement) => (event: KeyboardEvent) => {
-  event.preventDefault();
+const handleKeyDown = (node: HTMLAnchorElement) => (event: KeyboardEvent) => {
+  if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
+    event.preventDefault();
+  }
   if (document.activeElement === node) {
-    const linkSiblings = [...node.parentNode.children].filter(
+    const linkSiblings = Array.from(node.parentNode.children).filter(
       (child, index, cur) =>
         child !== node &&
         (child as HTMLAnchorElement) &&
@@ -38,22 +42,17 @@ const func = (node: HTMLAnchorElement) => (event: KeyboardEvent) => {
   }
 };
 
-const DropdownItem: FunctionComponent<GatsbyLinkProps<{}>> = props => {
+const DropdownItem: FunctionComponent<Props> = props => {
   const refLink = useRef<HTMLAnchorElement>(null);
 
-  useEffect(() => {
-    const node = refLink?.current as HTMLAnchorElement;
-
-    node.addEventListener('keydown', func(node));
-
-    return () => {
-      node.removeEventListener('keyup', func(node));
-    };
-  });
-
-  // useKey('ArrowDown', )
-
-  return <StyledAnchor as={Link} ref={refLink} {...props} />;
+  return (
+    <StyledAnchor
+      as={Link}
+      ref={refLink}
+      onKeyDown={handleKeyDown(refLink?.current as HTMLAnchorElement)}
+      {...props}
+    />
+  );
 };
 
 export default DropdownItem;

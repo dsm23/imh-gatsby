@@ -17,8 +17,12 @@ interface Props {
   slug: WindowLocation['pathname'];
 }
 
+const wait = (amount = 0) =>
+  new Promise(resolve => setTimeout(resolve, amount));
+
 const Header: FunctionComponent<Props> = ({ slug }) => {
   const [isNavOpen, setNavOpen] = useState<boolean>(false);
+  const [isAnimating, setAnimating] = useState<boolean>(false);
   const [isDropDownOpen, setDropDownOpen] = useState<boolean>(false);
 
   const refDropDown = useRef<HTMLLIElement>(null);
@@ -36,7 +40,13 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
 
   const toggleNav = () => setNavOpen(isOpen => !isOpen);
 
-  const toggleDropDown = () => setDropDownOpen(isOpen => !isOpen);
+  const toggleDropDown = async () => {
+    setAnimating(true);
+    await wait(100);
+    setDropDownOpen(isOpen => !isOpen);
+  };
+
+  const endAnimating = () => setAnimating(false);
 
   const navArr = [
     {
@@ -101,7 +111,12 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
 
             <div tw="hidden md:(ml-6 flex items-center)">
               {navArr.map(({ href, text }) => (
-                <NavLink as={Link} key={text} to={href} active={slug === href}>
+                <NavLink
+                  as={Link}
+                  key={text}
+                  to={href}
+                  isActive={slug === href}
+                >
                   {text}
                   {slug === href && <span tw="sr-only">(current)</span>}
                 </NavLink>
@@ -127,17 +142,18 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
             --> */}
                 <Dropdown
                   tw="w-full"
-                  open={isDropDownOpen}
+                  isOpen={isDropDownOpen}
+                  isAnimating={isAnimating}
                   aria-expanded={isDropDownOpen}
+                  onTransitionEnd={endAnimating}
                 >
                   <h6 tw="mx-4 mt-3 text-orange-400 font-medium">Products</h6>
                   {dropdownArr.map(({ href, text }) => (
                     <DropdownLink
                       tw="px-4 py-2"
                       key={text}
-                      as={Link}
                       to={href}
-                      active={slug === href}
+                      isActive={slug === href}
                       role="menuitem"
                     >
                       {text}{' '}
@@ -149,7 +165,6 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
                   <h6 tw="mt-4 mx-4 text-orange-400 font-medium">Services</h6>
                   <DropdownLink
                     tw="px-4 py-2"
-                    as={Link}
                     to="/consulting-from-imh/"
                     role="menuitem"
                   >
@@ -178,7 +193,7 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
               as={Link}
               key={`${text}-mobile`}
               to={href}
-              active={slug === href}
+              isActive={slug === href}
             >
               {text}
               {slug === href && <span tw="sr-only">(current)</span>}
@@ -193,7 +208,7 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
               as={Link}
               to={href}
               key={`${text}-mobile`}
-              active={slug === href}
+              isActive={slug === href}
             >
               {text}
               {slug === href && <span tw="sr-only">(current)</span>}
@@ -206,7 +221,7 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
           <NavLink
             as={Link}
             to="/consulting-from-imh/"
-            active={slug === '/consulting-from-imh/'}
+            isActive={slug === '/consulting-from-imh/'}
           >
             Consultancy from IMH
             {slug === '/consulting-from-imh/' && (

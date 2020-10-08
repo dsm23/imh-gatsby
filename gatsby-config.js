@@ -41,11 +41,12 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-emotion`,
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-graphql-codegen`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-typescript`,
     // {
     //   resolve: `gatsby-plugin-typescript`,

@@ -2,7 +2,6 @@ import { CSSProperties, ElementType } from 'react';
 import { styled } from 'twin.macro';
 
 interface Props {
-  as?: ElementType | keyof JSX.IntrinsicAttributes;
   basis: CSSProperties['flexBasis'];
 }
 

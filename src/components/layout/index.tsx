@@ -1,9 +1,10 @@
 import React, { FunctionComponent, ButtonHTMLAttributes } from 'react';
 import { PageRendererProps } from 'gatsby';
 import CookieConsent from 'react-cookie-consent';
+import tw from 'twin.macro';
+
 import Nav from '../nav';
 
-import tw from 'twin.macro';
 import 'twin.macro';
 
 const Button: FunctionComponent<ButtonHTMLAttributes<HTMLButtonElement>> = ({
@@ -42,11 +43,10 @@ const Layout: FunctionComponent<PageRendererProps> = ({
         buttonText="Accept"
         declineButtonText="Decline"
         cookieName="imh-ga"
-        // buttonStyle={tw`font-bold bg-teal-300`}
-        buttonStyle={tw`font-semibold bg-teal-300 hover:bg-teal-100 focus:outline-none focus:border-teal-500 focus:shadow-outline-teal active:bg-teal-500`}
-        declineButtonStyle={tw`mr-2 bg-red-300`}
-        style={tw`flex justify-between items-center bg-gray-700 w-full fixed bottom-0 p-3`}
-        contentStyle={tw`bg-gray-700`}
+        buttonClasses="font-semibold bg-teal-300 hover:bg-teal-100 focus:outline-none focus:border-teal-500 focus:shadow-outline-teal active:bg-teal-500"
+        declineButtonClasses="mr-2 bg-red-300"
+        containerClasses="flex justify-between items-center bg-gray-700 w-full fixed bottom-0 p-3"
+        contentClasses="bg-gray-700"
         disableStyles
         enableDeclineButton
         acceptOnScroll

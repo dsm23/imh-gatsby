@@ -257,6 +257,7 @@ export type ContentfulAssetFieldsEnum =
   | 'title'
   | 'description'
   | 'node_locale'
+  | 'sys___type'
   | 'sys___revision'
   | 'fixed___base64'
   | 'fixed___tracedSVG'
@@ -369,10 +370,12 @@ export type ContentfulAssetSortInput = {
 };
 
 export type ContentfulAssetSys = {
+  type?: Maybe<Scalars['String']>;
   revision?: Maybe<Scalars['Int']>;
 };
 
 export type ContentfulAssetSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
   revision?: Maybe<IntQueryOperatorInput>;
 };
 
@@ -417,6 +420,7 @@ export type ContentfulCardBodyRichTextNode = Node & {
   nodeType?: Maybe<Scalars['String']>;
   content?: Maybe<Array<Maybe<ContentfulCardBodyRichTextNodeContent>>>;
   body?: Maybe<Scalars['String']>;
+  sys?: Maybe<ContentfulCardBodyRichTextNodeSys>;
   json?: Maybe<Scalars['JSON']>;
 };
 
@@ -790,6 +794,7 @@ export type ContentfulCardBodyRichTextNodeFieldsEnum =
   | 'content___content___content___nodeType'
   | 'content___content___content___content'
   | 'body'
+  | 'sys___type'
   | 'json';
 
 export type ContentfulCardBodyRichTextNodeFilterInput = {
@@ -800,6 +805,7 @@ export type ContentfulCardBodyRichTextNodeFilterInput = {
   nodeType?: Maybe<StringQueryOperatorInput>;
   content?: Maybe<ContentfulCardBodyRichTextNodeContentFilterListInput>;
   body?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulCardBodyRichTextNodeSysFilterInput>;
   json?: Maybe<JsonQueryOperatorInput>;
 };
 
@@ -815,6 +821,14 @@ export type ContentfulCardBodyRichTextNodeGroupConnection = {
 export type ContentfulCardBodyRichTextNodeSortInput = {
   fields?: Maybe<Array<Maybe<ContentfulCardBodyRichTextNodeFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulCardBodyRichTextNodeSys = {
+  type?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulCardBodyRichTextNodeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulCardConnection = {
@@ -979,11 +993,13 @@ export type ContentfulCardFieldsEnum =
   | 'body___content___content___marks'
   | 'body___content___content___content'
   | 'body___body'
+  | 'body___sys___type'
   | 'body___json'
   | 'spaceId'
   | 'contentful_id'
   | 'createdAt'
   | 'updatedAt'
+  | 'sys___type'
   | 'sys___revision'
   | 'sys___contentType___sys___type'
   | 'sys___contentType___sys___linkType'
@@ -1037,6 +1053,7 @@ export type ContentfulCardFieldsEnum =
   | 'childContentfulCardBodyRichTextNode___content___content___marks'
   | 'childContentfulCardBodyRichTextNode___content___content___content'
   | 'childContentfulCardBodyRichTextNode___body'
+  | 'childContentfulCardBodyRichTextNode___sys___type'
   | 'childContentfulCardBodyRichTextNode___json';
 
 export type ContentfulCardFilterInput = {
@@ -1070,6 +1087,7 @@ export type ContentfulCardSortInput = {
 };
 
 export type ContentfulCardSys = {
+  type?: Maybe<Scalars['String']>;
   revision?: Maybe<Scalars['Int']>;
   contentType?: Maybe<ContentfulCardSysContentType>;
 };
@@ -1097,6 +1115,7 @@ export type ContentfulCardSysContentTypeSysFilterInput = {
 };
 
 export type ContentfulCardSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
   revision?: Maybe<IntQueryOperatorInput>;
   contentType?: Maybe<ContentfulCardSysContentTypeFilterInput>;
 };
@@ -1109,6 +1128,7 @@ export type ContentfulContentType = Node & {
   name?: Maybe<Scalars['String']>;
   displayField?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
+  sys?: Maybe<ContentfulContentTypeSys>;
 };
 
 export type ContentfulContentTypeConnection = {
@@ -1227,7 +1247,8 @@ export type ContentfulContentTypeFieldsEnum =
   | 'internal___type'
   | 'name'
   | 'displayField'
-  | 'description';
+  | 'description'
+  | 'sys___type';
 
 export type ContentfulContentTypeFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -1237,6 +1258,7 @@ export type ContentfulContentTypeFilterInput = {
   name?: Maybe<StringQueryOperatorInput>;
   displayField?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulContentTypeSysFilterInput>;
 };
 
 export type ContentfulContentTypeGroupConnection = {
@@ -1251,6 +1273,14 @@ export type ContentfulContentTypeGroupConnection = {
 export type ContentfulContentTypeSortInput = {
   fields?: Maybe<Array<Maybe<ContentfulContentTypeFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulContentTypeSys = {
+  type?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulContentTypeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulFixed = {
@@ -1380,6 +1410,7 @@ export type ContentfulPageContentRichTextNode = Node & {
   /** @deprecated This field is deprecated, please use 'json' instead. */
   nodeType?: Maybe<Scalars['String']>;
   content?: Maybe<Scalars['String']>;
+  sys?: Maybe<ContentfulPageContentRichTextNodeSys>;
   json?: Maybe<Scalars['JSON']>;
 };
 
@@ -1499,6 +1530,7 @@ export type ContentfulPageContentRichTextNodeFieldsEnum =
   | 'internal___type'
   | 'nodeType'
   | 'content'
+  | 'sys___type'
   | 'json';
 
 export type ContentfulPageContentRichTextNodeFilterInput = {
@@ -1508,6 +1540,7 @@ export type ContentfulPageContentRichTextNodeFilterInput = {
   internal?: Maybe<InternalFilterInput>;
   nodeType?: Maybe<StringQueryOperatorInput>;
   content?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulPageContentRichTextNodeSysFilterInput>;
   json?: Maybe<JsonQueryOperatorInput>;
 };
 
@@ -1523,6 +1556,14 @@ export type ContentfulPageContentRichTextNodeGroupConnection = {
 export type ContentfulPageContentRichTextNodeSortInput = {
   fields?: Maybe<Array<Maybe<ContentfulPageContentRichTextNodeFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulPageContentRichTextNodeSys = {
+  type?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulPageContentRichTextNodeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulPageEdge = {
@@ -1660,11 +1701,13 @@ export type ContentfulPageFieldsEnum =
   | 'content___internal___type'
   | 'content___nodeType'
   | 'content___content'
+  | 'content___sys___type'
   | 'content___json'
   | 'spaceId'
   | 'contentful_id'
   | 'createdAt'
   | 'updatedAt'
+  | 'sys___type'
   | 'sys___revision'
   | 'sys___contentType___sys___type'
   | 'sys___contentType___sys___linkType'
@@ -1711,6 +1754,7 @@ export type ContentfulPageFieldsEnum =
   | 'childContentfulPageContentRichTextNode___internal___type'
   | 'childContentfulPageContentRichTextNode___nodeType'
   | 'childContentfulPageContentRichTextNode___content'
+  | 'childContentfulPageContentRichTextNode___sys___type'
   | 'childContentfulPageContentRichTextNode___json';
 
 export type ContentfulPageFilterInput = {
@@ -1745,6 +1789,7 @@ export type ContentfulPageSortInput = {
 };
 
 export type ContentfulPageSys = {
+  type?: Maybe<Scalars['String']>;
   revision?: Maybe<Scalars['Int']>;
   contentType?: Maybe<ContentfulPageSysContentType>;
 };
@@ -1772,6 +1817,7 @@ export type ContentfulPageSysContentTypeSysFilterInput = {
 };
 
 export type ContentfulPageSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
   revision?: Maybe<IntQueryOperatorInput>;
   contentType?: Maybe<ContentfulPageSysContentTypeFilterInput>;
 };
@@ -1882,6 +1928,7 @@ export type ContentfulWelcomeBodyRichTextNode = Node & {
   /** @deprecated This field is deprecated, please use 'json' instead. */
   nodeType?: Maybe<Scalars['String']>;
   body?: Maybe<Scalars['String']>;
+  sys?: Maybe<ContentfulWelcomeBodyRichTextNodeSys>;
   json?: Maybe<Scalars['JSON']>;
 };
 
@@ -2034,6 +2081,7 @@ export type ContentfulWelcomeBodyRichTextNodeFieldsEnum =
   | 'content___nodeType'
   | 'nodeType'
   | 'body'
+  | 'sys___type'
   | 'json';
 
 export type ContentfulWelcomeBodyRichTextNodeFilterInput = {
@@ -2044,6 +2092,7 @@ export type ContentfulWelcomeBodyRichTextNodeFilterInput = {
   content?: Maybe<ContentfulWelcomeBodyRichTextNodeContentFilterListInput>;
   nodeType?: Maybe<StringQueryOperatorInput>;
   body?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulWelcomeBodyRichTextNodeSysFilterInput>;
   json?: Maybe<JsonQueryOperatorInput>;
 };
 
@@ -2059,6 +2108,14 @@ export type ContentfulWelcomeBodyRichTextNodeGroupConnection = {
 export type ContentfulWelcomeBodyRichTextNodeSortInput = {
   fields?: Maybe<Array<Maybe<ContentfulWelcomeBodyRichTextNodeFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulWelcomeBodyRichTextNodeSys = {
+  type?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulWelcomeBodyRichTextNodeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulWelcomeConnection = {
@@ -2225,6 +2282,7 @@ export type ContentfulWelcomeFieldsEnum =
   | 'welcomePic___title'
   | 'welcomePic___description'
   | 'welcomePic___node_locale'
+  | 'welcomePic___sys___type'
   | 'welcomePic___sys___revision'
   | 'welcomePic___fixed___base64'
   | 'welcomePic___fixed___tracedSVG'
@@ -2311,11 +2369,13 @@ export type ContentfulWelcomeFieldsEnum =
   | 'body___content___nodeType'
   | 'body___nodeType'
   | 'body___body'
+  | 'body___sys___type'
   | 'body___json'
   | 'spaceId'
   | 'contentful_id'
   | 'createdAt'
   | 'updatedAt'
+  | 'sys___type'
   | 'sys___revision'
   | 'sys___contentType___sys___type'
   | 'sys___contentType___sys___linkType'
@@ -2367,6 +2427,7 @@ export type ContentfulWelcomeFieldsEnum =
   | 'childContentfulWelcomeBodyRichTextNode___content___nodeType'
   | 'childContentfulWelcomeBodyRichTextNode___nodeType'
   | 'childContentfulWelcomeBodyRichTextNode___body'
+  | 'childContentfulWelcomeBodyRichTextNode___sys___type'
   | 'childContentfulWelcomeBodyRichTextNode___json';
 
 export type ContentfulWelcomeFilterInput = {
@@ -2401,6 +2462,7 @@ export type ContentfulWelcomeSortInput = {
 };
 
 export type ContentfulWelcomeSys = {
+  type?: Maybe<Scalars['String']>;
   revision?: Maybe<Scalars['Int']>;
   contentType?: Maybe<ContentfulWelcomeSysContentType>;
 };
@@ -2428,6 +2490,7 @@ export type ContentfulWelcomeSysContentTypeSysFilterInput = {
 };
 
 export type ContentfulWelcomeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
   revision?: Maybe<IntQueryOperatorInput>;
   contentType?: Maybe<ContentfulWelcomeSysContentTypeFilterInput>;
 };
@@ -3768,10 +3831,10 @@ export type Query = {
   allFile: FileConnection;
   directory?: Maybe<Directory>;
   allDirectory: DirectoryConnection;
-  sitePage?: Maybe<SitePage>;
-  allSitePage: SitePageConnection;
   site?: Maybe<Site>;
   allSite: SiteConnection;
+  sitePage?: Maybe<SitePage>;
+  allSitePage: SitePageConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
   contentfulAsset?: Maybe<ContentfulAsset>;
@@ -3897,6 +3960,26 @@ export type QueryAllDirectoryArgs = {
 };
 
 
+export type QuerySiteArgs = {
+  buildTime?: Maybe<DateQueryOperatorInput>;
+  siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  polyfill?: Maybe<BooleanQueryOperatorInput>;
+  pathPrefix?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+
+export type QueryAllSiteArgs = {
+  filter?: Maybe<SiteFilterInput>;
+  sort?: Maybe<SiteSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
 export type QuerySitePageArgs = {
   path?: Maybe<StringQueryOperatorInput>;
   component?: Maybe<StringQueryOperatorInput>;
@@ -3918,26 +4001,6 @@ export type QuerySitePageArgs = {
 export type QueryAllSitePageArgs = {
   filter?: Maybe<SitePageFilterInput>;
   sort?: Maybe<SitePageSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QuerySiteArgs = {
-  buildTime?: Maybe<DateQueryOperatorInput>;
-  siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  polyfill?: Maybe<BooleanQueryOperatorInput>;
-  pathPrefix?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-};
-
-
-export type QueryAllSiteArgs = {
-  filter?: Maybe<SiteFilterInput>;
-  sort?: Maybe<SiteSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -4003,6 +4066,7 @@ export type QueryContentfulWelcomeBodyRichTextNodeArgs = {
   content?: Maybe<ContentfulWelcomeBodyRichTextNodeContentFilterListInput>;
   nodeType?: Maybe<StringQueryOperatorInput>;
   body?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulWelcomeBodyRichTextNodeSysFilterInput>;
   json?: Maybe<JsonQueryOperatorInput>;
 };
 
@@ -4049,6 +4113,7 @@ export type QueryContentfulCardBodyRichTextNodeArgs = {
   nodeType?: Maybe<StringQueryOperatorInput>;
   content?: Maybe<ContentfulCardBodyRichTextNodeContentFilterListInput>;
   body?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulCardBodyRichTextNodeSysFilterInput>;
   json?: Maybe<JsonQueryOperatorInput>;
 };
 
@@ -4093,6 +4158,7 @@ export type QueryContentfulPageContentRichTextNodeArgs = {
   internal?: Maybe<InternalFilterInput>;
   nodeType?: Maybe<StringQueryOperatorInput>;
   content?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulPageContentRichTextNodeSysFilterInput>;
   json?: Maybe<JsonQueryOperatorInput>;
 };
 
@@ -4139,6 +4205,7 @@ export type QueryContentfulContentTypeArgs = {
   name?: Maybe<StringQueryOperatorInput>;
   displayField?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulContentTypeSysFilterInput>;
 };
 
 
