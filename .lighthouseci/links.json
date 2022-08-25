@@ -1,7 +1,0 @@
-{
-  "http://localhost:46635/404.html": "https://storage.googleapis.com/lighthouse-infrastructure.appspot.com/reports/1600097658811-14124.report.html",
-  "http://localhost:46635/index.html": "https://storage.googleapis.com/lighthouse-infrastructure.appspot.com/reports/1600097659745-34194.report.html",
-  "http://localhost:46635/404/index.html": "https://storage.googleapis.com/lighthouse-infrastructure.appspot.com/reports/1600097660506-81950.report.html",
-  "http://localhost:46635/about/index.html": "https://storage.googleapis.com/lighthouse-infrastructure.appspot.com/reports/1600097661478-78124.report.html",
-  "http://localhost:46635/consulting-from-imh/index.html": "https://storage.googleapis.com/lighthouse-infrastructure.appspot.com/reports/1600097662855-59191.report.html"
-}
