@@ -50,34 +50,34 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
 
   const navArr = [
     {
-      href: '/about/',
+      href: '/about',
       text: 'About',
     },
     {
-      href: '/contact/',
+      href: '/contact',
       text: 'Contact',
     },
     {
-      href: '/technical-help/',
+      href: '/technical-help',
       text: 'Technical Help',
     },
   ];
 
   const dropdownArr = [
     {
-      href: '/dent/',
+      href: '/dent',
       text: 'Dent Instruments',
     },
     {
-      href: '/dranetz/',
+      href: '/dranetz',
       text: 'Dranetz',
     },
     {
-      href: '/electrotek/',
+      href: '/electrotek',
       text: 'Electrotek Systems',
     },
     {
-      href: '/powerside/',
+      href: '/powerside',
       text: 'Powerside',
     },
   ];
@@ -115,7 +115,7 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
                   as={Link}
                   key={text}
                   to={href}
-                  isActive={slug === href}
+                  $isActive={slug === href}
                 >
                   {text}
                   {slug === href && <span tw="sr-only">(current)</span>}
@@ -128,7 +128,7 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
                   onClick={toggleDropDown}
                   aria-haspopup="true"
                 >
-                  Products and Services <Caret tw="inline h-5 w-5" />
+                  Products, Policies and Services <Caret tw="inline h-5 w-5" />
                 </NavLink>
                 {/* <!--
               Profile dropdown panel, show/hide based on dropdown state.
@@ -147,13 +147,13 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
                   aria-expanded={isDropDownOpen}
                   onTransitionEnd={endAnimating}
                 >
-                  <h6 tw="mx-4 mt-3 text-orange-400 font-medium">Products</h6>
+                  <h6 tw="mx-4 mt-3 text-yellow-500 font-medium">Products</h6>
                   {dropdownArr.map(({ href, text }) => (
                     <DropdownLink
                       tw="px-4 py-2"
                       key={text}
                       to={href}
-                      isActive={slug === href}
+                      $isActive={slug === href}
                       role="menuitem"
                     >
                       {text}{' '}
@@ -162,14 +162,26 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
                   ))}
 
                   <div tw="mt-1 mx-4 border-t border-gray-200" />
-                  <h6 tw="mt-4 mx-4 text-orange-400 font-medium">Services</h6>
+                  <h6 tw="mt-4 mx-4 text-yellow-500 font-medium">Services</h6>
                   <DropdownLink
                     tw="px-4 py-2"
-                    to="/consulting-from-imh/"
+                    to="/consulting-from-imh"
                     role="menuitem"
                   >
                     Consultancy from IMH
-                    {slug === '/consulting-from-imh/' && (
+                    {slug === '/consulting-from-imh' && (
+                      <span tw="sr-only">(current)</span>
+                    )}
+                  </DropdownLink>
+                  <div tw="mt-1 mx-4 border-t border-gray-200" />
+                  <h6 tw="mt-4 mx-4 text-yellow-500 font-medium">Policies</h6>
+                  <DropdownLink
+                    tw="px-4 py-2"
+                    to="/inclusion-policy"
+                    role="menuitem"
+                  >
+                    Inclusion Policy
+                    {slug === '/inclusion-policy' && (
                       <span tw="sr-only">(current)</span>
                     )}
                   </DropdownLink>
@@ -193,7 +205,7 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
               as={Link}
               key={`${text}-mobile`}
               to={href}
-              isActive={slug === href}
+              $isActive={slug === href}
             >
               {text}
               {slug === href && <span tw="sr-only">(current)</span>}
@@ -202,13 +214,13 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
         </div>
         <div tw="mx-3 pt-4 pb-3 border-t border-gray-500" />
         <div tw="mt-3 px-2 sm:px-3">
-          <h6 tw="px-3 text-orange-400 font-medium">Products</h6>
+          <div tw="px-3 text-yellow-500 font-medium">Products</div>
           {dropdownArr.map(({ href, text }) => (
             <NavLink
               as={Link}
               to={href}
               key={`${text}-mobile`}
-              isActive={slug === href}
+              $isActive={slug === href}
             >
               {text}
               {slug === href && <span tw="sr-only">(current)</span>}
@@ -217,14 +229,28 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
         </div>
         <div tw="mx-3 pt-4 pb-3 border-t border-gray-500" />
         <div tw="mt-3 px-2 sm:px-3">
-          <h6 tw="px-3 text-orange-400 font-medium">Services</h6>
+          <div tw="px-3 text-yellow-500 font-medium">Services</div>
           <NavLink
             as={Link}
-            to="/consulting-from-imh/"
-            isActive={slug === '/consulting-from-imh/'}
+            to="/consulting-from-imh"
+            $isActive={slug === '/consulting-from-imh'}
           >
             Consultancy from IMH
             {slug === '/consulting-from-imh/' && (
+              <span tw="sr-only">(current)</span>
+            )}
+          </NavLink>
+          <div tw="mx-3 pt-4 pb-3 border-t border-gray-500" />
+        </div>
+        <div tw="mt-3 px-2 sm:px-3">
+          <div tw="px-3 text-yellow-500 font-medium">Policies</div>
+          <NavLink
+            as={Link}
+            to="/inclusion-policy"
+            $isActive={slug === '/inclusion-policy'}
+          >
+            Inclusion Policy
+            {slug === '/inclusion-policy' && (
               <span tw="sr-only">(current)</span>
             )}
           </NavLink>

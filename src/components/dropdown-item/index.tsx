@@ -9,15 +9,15 @@ import { Link, GatsbyLinkProps } from 'gatsby';
 import tw, { styled } from 'twin.macro';
 
 interface StyleProps {
-  isActive?: boolean;
+  $isActive?: boolean;
   as?: ElementType | keyof JSX.IntrinsicAttributes;
 }
 
 type Props = GatsbyLinkProps<{}> & StyleProps;
 
-const StyledAnchor = styled.a<StyleProps>(({ isActive }) => [
+const StyledAnchor = styled.a<StyleProps>(({ $isActive }) => [
   tw`block text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:(outline-none bg-gray-100) transition duration-150 ease-in-out`,
-  isActive &&
+  $isActive &&
     tw`text-white bg-indigo-700 hover:bg-indigo-500 focus:(outline-none bg-indigo-600)`,
 ]);
 
@@ -26,7 +26,9 @@ const handleKeyDown = (node: HTMLAnchorElement) => (event: KeyboardEvent) => {
     event.preventDefault();
   }
   if (document.activeElement === node) {
-    const linkSiblings = Array.from(node.parentNode.children).filter(
+    const parentNode = node.parentNode as HTMLDivElement;
+
+    const linkSiblings = Array.from(parentNode.children).filter(
       (child, index, cur) =>
         child !== node &&
         (child as HTMLAnchorElement) &&

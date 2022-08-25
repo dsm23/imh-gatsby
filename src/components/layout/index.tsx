@@ -43,14 +43,13 @@ const Layout: FunctionComponent<PageRendererProps> = ({
         buttonText="Accept"
         declineButtonText="Decline"
         cookieName="imh-ga"
-        buttonClasses="font-semibold bg-teal-300 hover:bg-teal-100 focus:outline-none focus:border-teal-500 focus:shadow-outline-teal active:bg-teal-500"
+        buttonClasses="font-semibold bg-green-300 hover:bg-teal-100 focus:outline-none focus:border-teal-500 focus:shadow-outline-teal active:bg-teal-500"
         declineButtonClasses="mr-2 bg-red-300"
         containerClasses="flex justify-between items-center bg-gray-700 w-full fixed bottom-0 p-3"
+        buttonWrapperClasses="flex flex-col-reverse sm:flex-row flex-wrap justify-end"
         contentClasses="bg-gray-700"
         disableStyles
         enableDeclineButton
-        acceptOnScroll
-        acceptOnScrollPercentage={20}
         ButtonComponent={Button}
       >
         <span tw="text-white">This site uses cookies. Do you consent?</span>

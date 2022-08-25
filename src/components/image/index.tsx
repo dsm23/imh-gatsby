@@ -1,12 +1,15 @@
 import React, { FunctionComponent } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img, { GatsbyImageProps, FluidObject } from 'gatsby-image';
+// import Img, { GatsbyImageProps, FluidObject } from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { Query, ContentfulAsset } from '../../../graphql-types';
 
-type Props = Omit<GatsbyImageProps, 'fixed'> & {
-  contentfulId: ContentfulAsset['contentful_id'];
-};
+// type Props = Omit<GatsbyImageProps, 'fixed'> & {
+//   contentfulId: ContentfulAsset['contentful_id'];
+// };
+
+type Props = any;
 
 const Image: FunctionComponent<Props> = ({ contentfulId, ...props }) => {
   const { allContentfulAsset } = useStaticQuery<Query>(
@@ -16,9 +19,12 @@ const Image: FunctionComponent<Props> = ({ contentfulId, ...props }) => {
           nodes {
             contentful_id
             description
-            fluid {
-              ...GatsbyContentfulFluid_withWebp
-            }
+            gatsbyImage(
+              cropFocus: EDGES
+              layout: FULL_WIDTH
+              placeholder: BLURRED
+              width: 192
+            )
           }
         }
       }
@@ -30,10 +36,10 @@ const Image: FunctionComponent<Props> = ({ contentfulId, ...props }) => {
   );
 
   return (
-    <Img
+    <GatsbyImage
       {...props}
-      alt={image?.description as string}
-      fluid={image?.fluid as FluidObject}
+      alt={image?.description!}
+      image={image?.gatsbyImage}
     />
   );
 };

@@ -1,19 +1,17 @@
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 import tw, { styled } from 'twin.macro';
-import 'twin.macro';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   isOpen: boolean;
   isAnimating: boolean;
 }
 
-const DropdownContainer = styled.div<Props>(({ isOpen }) => [
+const DropdownContainer = styled.div<{ $isOpen: boolean }>(({ $isOpen }) => [
   tw`origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg transform transition ease-out duration-200 opacity-0 scale-95`,
-  isOpen && tw`opacity-100 scale-100 ease-in duration-75`,
+  $isOpen && tw`opacity-100 scale-100 ease-in duration-75`,
 ]);
 
-{
-  /* <!--
+/* <!--
               Profile dropdown panel, show/hide based on dropdown state.
 
               Entering: "transition ease-out duration-200"
@@ -23,7 +21,6 @@ const DropdownContainer = styled.div<Props>(({ isOpen }) => [
                 From: "transform opacity-100 scale-100"
                 To: "transform opacity-0 scale-95"
             --> */
-}
 
 const Dropdown: FunctionComponent<Props> = ({
   children,
@@ -37,12 +34,11 @@ const Dropdown: FunctionComponent<Props> = ({
       {...props}
       // TODO: fix this specificity prod bug
       tw="w-full"
-      isOpen={isOpen}
-      isAnimating={isAnimating}
+      $isOpen={isOpen || isAnimating}
       onTransitionEnd={onTransitionEnd}
     >
       <div
-        tw="py-1 rounded-md bg-white shadow-xs"
+        tw="py-1 rounded-md bg-white ring-1 ring-black ring-opacity-5"
         role="menu"
         aria-orientation="vertical"
       >

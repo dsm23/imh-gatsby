@@ -1,25 +1,19 @@
 import React, { FunctionComponent } from 'react';
 import { graphql, PageRendererProps } from 'gatsby';
-import {
-  documentToReactComponents,
-  Options,
-} from '@contentful/rich-text-react-renderer';
+import { Options } from '@contentful/rich-text-react-renderer';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import 'twin.macro';
 
 import CardGroup from '../components/card';
 import Divisor from '../components/divisor';
 import Image from '../components/image';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
-import {
-  ContentfulCardBodyRichTextNodeContent,
-  ContentfulWelcome,
-  Query,
-} from '../../graphql-types';
-
-import 'twin.macro';
+import { ContentfulWelcome, Query } from '../../graphql-types';
 
 interface Props extends PageRendererProps {
   data: Query;
@@ -51,8 +45,8 @@ const options: Options = {
     [BLOCKS.UL_LIST]: (_, children) => {
       return <ul tw="ml-5 list-disc">{children}</ul>;
     },
-    [BLOCKS.EMBEDDED_ASSET]: (node: ContentfulCardBodyRichTextNodeContent) => {
-      return <Image contentfulId={node?.data?.target?.sys?.contentful_id} />;
+    [BLOCKS.EMBEDDED_ASSET]: node => {
+      return <Image contentfulId={node?.data?.target?.contentful_id} />;
     },
   },
   // renderText: text => text.replace('!', '?'),
@@ -80,12 +74,14 @@ const Home: FunctionComponent<Props> = ({ data, location }) => {
       <section id="imh" tw="py-2 md:py-4 md:flex md:items-center">
         <div tw="w-full md:w-1/2">
           <h1 tw="text-4xl">{welcome?.header}</h1>
-          {documentToReactComponents(welcome?.body?.json, welcomeOptions)}
+          {/* @ts-ignore */}
+          {renderRichText(welcome?.body, welcomeOptions)}
         </div>
 
-        <Image
+        <GatsbyImage
           tw="hidden md:(block w-1/2 m-5) rounded-lg shadow-lg"
-          contentfulId={welcome?.welcomePic?.contentful_id}
+          alt={welcome?.welcomePic?.description!}
+          image={welcome?.welcomePic?.gatsbyImage}
         />
       </section>
       <Divisor />
@@ -128,13 +124,8 @@ const Home: FunctionComponent<Props> = ({ data, location }) => {
               tw="px-4 py-6 rounded overflow-hidden shadow-lg w-full sm:w-1/2 md:w-1/3"
               key={entryUnused}
             >
-              {documentToReactComponents(
-                {
-                  ...(body?.json ?? {}),
-                  content: body?.json?.content.slice(0, -1),
-                },
-                options,
-              )}
+              {/* @ts-ignore */}
+              {renderRichText(body, options)}
             </div>
           ))}
         </CardGroup>
@@ -158,17 +149,30 @@ export const pageQuery = graphql`
     contentfulWelcome(contentful_id: { eq: "6hcNRRouGi4uD9MGL9WCBx" }) {
       header
       body {
-        json
+        raw
       }
       welcomePic {
         contentful_id
+        description
+        gatsbyImage(
+          cropFocus: EDGES
+          layout: FULL_WIDTH
+          placeholder: BLURRED
+          width: 192
+        )
       }
     }
     allContentfulCard {
       nodes {
         entryUnused
         body {
-          json
+          raw
+          references {
+            ... on ContentfulAsset {
+              contentful_id
+              __typename
+            }
+          }
         }
       }
     }

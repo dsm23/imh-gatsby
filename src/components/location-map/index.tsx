@@ -7,6 +7,8 @@ import ReactMapGL, {
   GeolocateControl,
 } from 'react-map-gl';
 
+import 'mapbox-gl/dist/mapbox-gl.css';
+
 import Pin from '../svgs/pin';
 
 import { Query } from '../../../graphql-types';
