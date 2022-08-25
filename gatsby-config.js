@@ -3,7 +3,6 @@
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
-const path = require("path");
 require('dotenv').config({
   path: `.env`,
 });
@@ -32,7 +31,14 @@ module.exports = {
     siteUrl,
   },
   plugins: [
+    `gatsby-plugin-graphql-codegen`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -41,21 +47,15 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-styled-components`,
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-graphql-codegen`,
-    `gatsby-plugin-sitemap`,
-    `gatsby-plugin-netlify`,
-    `gatsby-plugin-postcss`,
-    `gatsby-plugin-typescript`,
-    // {
-    //   resolve: `gatsby-plugin-typescript`,
-    //   options: {
-    //     isTSX: true, // defaults to false
-    //     jsxPragma: `jsx`, // defaults to "React"
-    //     allExtensions: true, // defaults to false
-    //   },
-    // },
+    // `gatsby-plugin-typescript`,
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        // isTSX: true, // defaults to false
+        jsxPragma: `jsx`, // defaults to "React"
+        // allExtensions: true, // defaults to false
+      },
+    },
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
@@ -65,8 +65,8 @@ module.exports = {
       options: {
         host: siteUrl,
         sitemap: `${siteUrl}/sitemap.xml`,
-        policy: [{ userAgent: '*', allow: '/' }]
-      }
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
     },
     {
       resolve: `gatsby-plugin-gdpr-cookies`,
@@ -98,7 +98,7 @@ module.exports = {
         },
       },
     },
-    
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     {
