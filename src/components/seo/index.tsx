@@ -24,19 +24,17 @@ const SEO: FunctionComponent<Props> = ({
   meta = [],
   title,
 }) => {
-  const { site } = useStaticQuery<Query>(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
+  const { site } = useStaticQuery<Query>(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          author
         }
       }
-    `,
-  );
+    }
+  `);
 
   const metaDescription =
     description || (site?.siteMetadata?.description as string);

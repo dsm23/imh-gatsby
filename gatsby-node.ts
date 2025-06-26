@@ -45,20 +45,18 @@ export const createPages: GatsbyNode['createPages'] = async ({
   try {
     const pageTemplate = path.resolve('./src/templates/page.tsx');
 
-    const result = await graphql<Query>(
-      `
-        {
-          allContentfulPage {
-            edges {
-              node {
-                header
-                slug
-              }
+    const result = await graphql<Query>(`
+      {
+        allContentfulPage {
+          edges {
+            node {
+              header
+              slug
             }
           }
         }
-      `,
-    );
+      }
+    `);
 
     if (result.errors) {
       reporter.panicOnBuild(

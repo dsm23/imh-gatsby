@@ -12,24 +12,22 @@ import { Query, ContentfulAsset } from '../../../graphql-types';
 type Props = any;
 
 const Image: FunctionComponent<Props> = ({ contentfulId, ...props }) => {
-  const { allContentfulAsset } = useStaticQuery<Query>(
-    graphql`
-      query queryForAsset {
-        allContentfulAsset {
-          nodes {
-            contentful_id
-            description
-            gatsbyImage(
-              cropFocus: EDGES
-              layout: FULL_WIDTH
-              placeholder: BLURRED
-              width: 192
-            )
-          }
+  const { allContentfulAsset } = useStaticQuery<Query>(graphql`
+    query queryForAsset {
+      allContentfulAsset {
+        nodes {
+          contentful_id
+          description
+          gatsbyImage(
+            cropFocus: EDGES
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+            width: 192
+          )
         }
       }
-    `,
-  );
+    }
+  `);
 
   const image = allContentfulAsset.nodes.find(
     (node: ContentfulAsset) => node.contentful_id === contentfulId,
