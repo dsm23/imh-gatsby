@@ -21,6 +21,7 @@
     "@contentful/rich-text-react-renderer": "^14.1.2",
     "@contentful/rich-text-types": "^14.1.2",
     "@fontsource/inter": "^4.1.0",
+    "@tailwindcss/postcss": "4.1.11",
     "clsx": "2.1.1",
     "gatsby": "^4.16.0",
     "gatsby-image": "^2.4.21",
@@ -48,7 +49,7 @@
     "react-helmet": "^6.1.0",
     "react-map-gl": "^6.1.1",
     "react-use": "^15.3.8",
-    "tailwindcss": "^2.0.2"
+    "tailwindcss": "4.1.11"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.12.12",
@@ -64,7 +65,6 @@
     "@types/react-helmet": "^6.1.0",
     "@types/react-map-gl": "^5.2.9",
     "@types/testing-library__cypress": "^7.0.0",
-    "autoprefixer": "^10.2.4",
     "axe-core": "^4.1.1",
     "babel-jest": "^30.0.2",
     "babel-preset-gatsby": "^3.14.0",

@@ -9,7 +9,7 @@ const Anchor: FunctionComponent<AnchorHTMLAttributes<HTMLAnchorElement>> = ({
   <a
     {...props}
     className={cx(
-      "text-purple-800 font-semibold rounded px-1 -mx-1 hover:bg-yellow-300",
+      "text-purple-800 font-semibold rounded-sm px-1 -mx-1 hover:bg-yellow-300",
       className,
     )}
   >
