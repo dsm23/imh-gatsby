@@ -81,13 +81,13 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
   ];
 
   return (
-    <nav className="bg-gradient-to-r from-purple-700 via-purple-800 to-purple-900 fixed w-full max-h-full top-0 z-10 opacity-100">
+    <nav className="bg-linear-to-r from-purple-700 via-purple-800 to-purple-900 fixed w-full max-h-full top-0 z-10 opacity-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
-          <div className="flex-shrink-0 flex items-center">
+          <div className="shrink-0 flex items-center">
             <Link
               to="/"
-              className="px-3 py-2 rounded-md text-white text-xl tracking-widest font-semibold leading-5 hover:text-white hover:font-bold hover:no-underline focus:outline-none focus:text-white focus:bg-indigo-700"
+              className="px-3 py-2 rounded-md text-white text-xl tracking-widest font-semibold leading-5 hover:text-white hover:font-bold hover:no-underline focus:outline-hidden focus:text-white focus:bg-indigo-700"
             >
               IMH
             </Link>
@@ -96,7 +96,7 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
             <div className="-ml-2 mr-2 flex items-center md:hidden">
               {/* <!-- Mobile menu button --> */}
               <button
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700 focus:text-white transition duration-150 ease-in-out"
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-indigo-700 focus:outline-hidden focus:bg-indigo-700 focus:text-white transition duration-150 ease-in-out"
                 onClick={toggleNav}
                 aria-label="Main menu"
                 aria-expanded="false"

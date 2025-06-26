@@ -44,7 +44,7 @@ const DropdownItem: FunctionComponent<Props> = ({
     <Link
       {...props}
       className={cx(
-        "block text-sm leading-5 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out",
+        "block text-sm leading-5 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 transition duration-150 ease-in-out",
         {
           "text-gray-700": !isActive,
           "text-white bg-indigo-700 hover:bg-indigo-500 focus:bg-indigo-600":

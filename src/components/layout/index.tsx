@@ -10,7 +10,7 @@ const Button: FunctionComponent<ButtonHTMLAttributes<HTMLButtonElement>> = ({
   style,
   ...props
 }) => (
-  <span className="m-2 sm:m-0 inline-flex rounded-md shadow-sm">
+  <span className="m-2 sm:m-0 inline-flex rounded-md shadow-xs">
     <button
       {...props}
       style={style}
@@ -42,7 +42,7 @@ const Layout: FunctionComponent<PageRendererProps> = ({
         buttonText="Accept"
         declineButtonText="Decline"
         cookieName="imh-ga"
-        buttonClasses="font-semibold bg-green-300 hover:bg-teal-100 focus:outline-none focus:border-teal-500 focus:shadow-outline-teal active:bg-teal-500"
+        buttonClasses="font-semibold bg-green-300 hover:bg-teal-100 focus:outline-hidden focus:border-teal-500 focus:shadow-outline-teal active:bg-teal-500"
         declineButtonClasses="mr-2 bg-red-300"
         containerClasses="flex justify-between items-center bg-gray-700 w-full fixed bottom-0 p-3"
         buttonWrapperClasses="flex flex-col-reverse sm:flex-row flex-wrap justify-end"

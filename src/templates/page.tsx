@@ -36,7 +36,7 @@ const options: Options = {
     [BLOCKS.LIST_ITEM]: (_, children) => <li className="ml-8">{children}</li>,
     [BLOCKS.EMBEDDED_ASSET]: (node) => (
       <Image
-        className="text-center shadow-lg mx-auto max-w-screen-md"
+        className="text-center shadow-lg mx-auto max-w-(--breakpoint-md)"
         contentfulId={node?.data?.target?.contentful_id}
       />
     ),

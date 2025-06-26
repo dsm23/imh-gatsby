@@ -121,7 +121,7 @@ const Home: FunctionComponent<Props> = ({ data, location }) => {
         <CardGroup>
           {cards.map(({ body, entryUnused }) => (
             <div
-              className="px-4 py-6 rounded overflow-hidden shadow-lg w-full sm:w-1/2 md:w-1/3"
+              className="px-4 py-6 rounded-sm overflow-hidden shadow-lg w-full sm:w-1/2 md:w-1/3"
               key={entryUnused}
             >
               {/* @ts-ignore */}
