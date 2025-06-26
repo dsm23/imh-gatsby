@@ -84,6 +84,7 @@
     "jest": "^30.0.3",
     "jest-canvas-mock": "^2.3.0",
     "jest-styled-components": "^7.0.3",
+    "lefthook": "1.11.14",
     "prettier": "3.6.1",
     "start-server-and-test": "^2.0.12",
     "typescript": "^5.8.3"
