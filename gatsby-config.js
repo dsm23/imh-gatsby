@@ -34,6 +34,7 @@ module.exports = {
     `gatsby-plugin-graphql-codegen`,
     `gatsby-plugin-image`,
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-pnpm`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
