@@ -5,22 +5,22 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { FunctionComponent } from 'react';
-import { Helmet, HelmetProps } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import React, { FunctionComponent } from "react";
+import { Helmet, HelmetProps } from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 
-import { Query } from '../../../graphql-types';
+import { Query } from "../../../graphql-types";
 
 interface Props {
-  meta?: HelmetProps['meta'];
+  meta?: HelmetProps["meta"];
   description?: string;
-  lang?: HelmetProps['htmlAttributes'];
+  lang?: HelmetProps["htmlAttributes"];
   title: string;
 }
 
 const SEO: FunctionComponent<Props> = ({
-  description = '',
-  lang = 'en',
+  description = "",
+  lang = "en",
   meta = [],
   title,
 }) => {

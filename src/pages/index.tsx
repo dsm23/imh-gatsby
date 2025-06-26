@@ -1,19 +1,19 @@
-import React, { FunctionComponent } from 'react';
-import { graphql, PageRendererProps } from 'gatsby';
-import { Options } from '@contentful/rich-text-react-renderer';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import React, { FunctionComponent } from "react";
+import { graphql, PageRendererProps } from "gatsby";
+import { Options } from "@contentful/rich-text-react-renderer";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 
-import 'twin.macro';
+import "twin.macro";
 
-import CardGroup from '../components/card';
-import Divisor from '../components/divisor';
-import Image from '../components/image';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import CardGroup from "../components/card";
+import Divisor from "../components/divisor";
+import Image from "../components/image";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
-import { ContentfulWelcome, Query } from '../../graphql-types';
+import { ContentfulWelcome, Query } from "../../graphql-types";
 
 interface Props extends PageRendererProps {
   data: Query;
@@ -28,7 +28,7 @@ const ListItem: FunctionComponent = ({ children }) => (
 
 const options: Options = {
   renderMark: {
-    [MARKS.BOLD]: text => (
+    [MARKS.BOLD]: (text) => (
       <span tw="text-2xl font-bold text-blue-700">{text}</span>
     ),
   },
@@ -45,7 +45,7 @@ const options: Options = {
     [BLOCKS.UL_LIST]: (_, children) => {
       return <ul tw="ml-5 list-disc">{children}</ul>;
     },
-    [BLOCKS.EMBEDDED_ASSET]: node => {
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
       return <Image contentfulId={node?.data?.target?.contentful_id} />;
     },
   },

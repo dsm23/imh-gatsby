@@ -1,11 +1,11 @@
 /// <reference types="jest" />
 
-import React from 'react';
-import { render } from '@testing-library/react';
+import React from "react";
+import { render } from "@testing-library/react";
 
-import Pin from '.';
+import Pin from ".";
 
-jest.mock('react-map-gl', () => ({
+jest.mock("react-map-gl", () => ({
   Marker: () => <div />,
 }));
 

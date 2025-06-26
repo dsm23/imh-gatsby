@@ -1,4 +1,4 @@
-import tw, { styled, theme } from 'twin.macro';
+import tw, { styled, theme } from "twin.macro";
 
 interface Props {
   open: boolean;
@@ -10,7 +10,7 @@ const MobileMenu = styled.div<Props>(({ open }) => [
     maxHeight: `calc(100% - ${theme`height.20`})`,
   },
   open && {
-    height: '32rem',
+    height: "32rem",
   },
 ]);
 

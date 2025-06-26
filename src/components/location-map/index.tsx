@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import React, { useState } from "react";
+import { useStaticQuery, graphql } from "gatsby";
 import ReactMapGL, {
   NavigationControl,
   FullscreenControl,
   ScaleControl,
   GeolocateControl,
-} from 'react-map-gl';
+} from "react-map-gl";
 
-import 'mapbox-gl/dist/mapbox-gl.css';
+import "mapbox-gl/dist/mapbox-gl.css";
 
-import Pin from '../svgs/pin';
+import Pin from "../svgs/pin";
 
-import { Query } from '../../../graphql-types';
+import { Query } from "../../../graphql-types";
 
-import FlexItem from '../flex-item';
+import FlexItem from "../flex-item";
 
 import {
   FullscreenControlStyles,
   GeolocateStyles,
   NavStyles,
   ScaleControlStyles,
-} from '../mapbox';
+} from "../mapbox";
 
 const geo = {
   latitude: 51.577794,
@@ -47,7 +47,7 @@ const Map = () => {
 
   if (!mapboxToken) {
     console.error(
-      'ERROR: Mapbox token is required in gatsby-config.js siteMetadata',
+      "ERROR: Mapbox token is required in gatsby-config.js siteMetadata",
     );
   }
 
@@ -59,7 +59,7 @@ const Map = () => {
         height={400}
         mapStyle="mapbox://styles/mapbox/dark-v9"
         mapboxApiAccessToken={mapboxToken}
-        onViewportChange={nextViewport => setViewport(nextViewport)}
+        onViewportChange={(nextViewport) => setViewport(nextViewport)}
       >
         <Pin {...geo} />
 

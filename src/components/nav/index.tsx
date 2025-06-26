@@ -1,24 +1,24 @@
-import React, { FunctionComponent, useRef, useState } from 'react';
-import { Link } from 'gatsby';
-import { useClickAway, useKey } from 'react-use';
-import { WindowLocation } from '@reach/router';
+import React, { FunctionComponent, useRef, useState } from "react";
+import { Link } from "gatsby";
+import { useClickAway, useKey } from "react-use";
+import { WindowLocation } from "@reach/router";
 
-import Caret from '../svgs/caret-down';
-import Cross from '../svgs/cross';
-import Dropdown from '../dropdown';
-import DropdownLink from '../dropdown-item';
-import Hamburger from '../svgs/hamburger';
-import MobileMenu from '../mobile-menu';
-import NavLink from '../nav-link';
+import Caret from "../svgs/caret-down";
+import Cross from "../svgs/cross";
+import Dropdown from "../dropdown";
+import DropdownLink from "../dropdown-item";
+import Hamburger from "../svgs/hamburger";
+import MobileMenu from "../mobile-menu";
+import NavLink from "../nav-link";
 
-import 'twin.macro';
+import "twin.macro";
 
 interface Props {
-  slug: WindowLocation['pathname'];
+  slug: WindowLocation["pathname"];
 }
 
 const wait = (amount = 0) =>
-  new Promise(resolve => setTimeout(resolve, amount));
+  new Promise((resolve) => setTimeout(resolve, amount));
 
 const Header: FunctionComponent<Props> = ({ slug }) => {
   const [isNavOpen, setNavOpen] = useState<boolean>(false);
@@ -36,49 +36,49 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
     setDropDownOpen(false);
   });
 
-  useKey('Escape', () => setDropDownOpen(false));
+  useKey("Escape", () => setDropDownOpen(false));
 
-  const toggleNav = () => setNavOpen(isOpen => !isOpen);
+  const toggleNav = () => setNavOpen((isOpen) => !isOpen);
 
   const toggleDropDown = async () => {
     setAnimating(true);
     await wait(100);
-    setDropDownOpen(isOpen => !isOpen);
+    setDropDownOpen((isOpen) => !isOpen);
   };
 
   const endAnimating = () => setAnimating(false);
 
   const navArr = [
     {
-      href: '/about',
-      text: 'About',
+      href: "/about",
+      text: "About",
     },
     {
-      href: '/contact',
-      text: 'Contact',
+      href: "/contact",
+      text: "Contact",
     },
     {
-      href: '/technical-help',
-      text: 'Technical Help',
+      href: "/technical-help",
+      text: "Technical Help",
     },
   ];
 
   const dropdownArr = [
     {
-      href: '/dent',
-      text: 'Dent Instruments',
+      href: "/dent",
+      text: "Dent Instruments",
     },
     {
-      href: '/dranetz',
-      text: 'Dranetz',
+      href: "/dranetz",
+      text: "Dranetz",
     },
     {
-      href: '/electrotek',
-      text: 'Electrotek Systems',
+      href: "/electrotek",
+      text: "Electrotek Systems",
     },
     {
-      href: '/powerside',
-      text: 'Powerside',
+      href: "/powerside",
+      text: "Powerside",
     },
   ];
 
@@ -156,7 +156,7 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
                       $isActive={slug === href}
                       role="menuitem"
                     >
-                      {text}{' '}
+                      {text}{" "}
                       {slug === href && <span tw="sr-only">(current)</span>}
                     </DropdownLink>
                   ))}
@@ -169,7 +169,7 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
                     role="menuitem"
                   >
                     Consultancy from IMH
-                    {slug === '/consulting-from-imh' && (
+                    {slug === "/consulting-from-imh" && (
                       <span tw="sr-only">(current)</span>
                     )}
                   </DropdownLink>
@@ -181,7 +181,7 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
                     role="menuitem"
                   >
                     Inclusion Policy
-                    {slug === '/inclusion-policy' && (
+                    {slug === "/inclusion-policy" && (
                       <span tw="sr-only">(current)</span>
                     )}
                   </DropdownLink>
@@ -233,10 +233,10 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
           <NavLink
             as={Link}
             to="/consulting-from-imh"
-            $isActive={slug === '/consulting-from-imh'}
+            $isActive={slug === "/consulting-from-imh"}
           >
             Consultancy from IMH
-            {slug === '/consulting-from-imh/' && (
+            {slug === "/consulting-from-imh/" && (
               <span tw="sr-only">(current)</span>
             )}
           </NavLink>
@@ -247,10 +247,10 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
           <NavLink
             as={Link}
             to="/inclusion-policy"
-            $isActive={slug === '/inclusion-policy'}
+            $isActive={slug === "/inclusion-policy"}
           >
             Inclusion Policy
-            {slug === '/inclusion-policy' && (
+            {slug === "/inclusion-policy" && (
               <span tw="sr-only">(current)</span>
             )}
           </NavLink>

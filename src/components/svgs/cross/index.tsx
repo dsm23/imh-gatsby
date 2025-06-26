@@ -1,7 +1,7 @@
-import React, { FunctionComponent, SVGAttributes } from 'react';
-import { theme } from 'twin.macro';
+import React, { FunctionComponent, SVGAttributes } from "react";
+import { theme } from "twin.macro";
 
-const Cross: FunctionComponent<SVGAttributes<SVGSVGElement>> = props => (
+const Cross: FunctionComponent<SVGAttributes<SVGSVGElement>> = (props) => (
   <svg
     {...props}
     fill={`${theme`colors.gray.100`}`}

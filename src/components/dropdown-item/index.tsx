@@ -3,10 +3,10 @@ import React, {
   FunctionComponent,
   useEffect,
   useRef,
-} from 'react';
-import { Link, GatsbyLinkProps } from 'gatsby';
+} from "react";
+import { Link, GatsbyLinkProps } from "gatsby";
 // import { useKey } from 'react-use';
-import tw, { styled } from 'twin.macro';
+import tw, { styled } from "twin.macro";
 
 interface StyleProps {
   $isActive?: boolean;
@@ -22,7 +22,7 @@ const StyledAnchor = styled.a<StyleProps>(({ $isActive }) => [
 ]);
 
 const handleKeyDown = (node: HTMLAnchorElement) => (event: KeyboardEvent) => {
-  if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
+  if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key)) {
     event.preventDefault();
   }
   if (document.activeElement === node) {
@@ -35,16 +35,16 @@ const handleKeyDown = (node: HTMLAnchorElement) => (event: KeyboardEvent) => {
         index > cur.indexOf(node),
     );
 
-    if (event.key === 'ArrowDown') {
+    if (event.key === "ArrowDown") {
       (node.nextElementSibling as HTMLAnchorElement).focus();
     }
-    if (event.key === 'ArrowUp') {
+    if (event.key === "ArrowUp") {
       (node.previousSibling as HTMLAnchorElement).focus();
     }
   }
 };
 
-const DropdownItem: FunctionComponent<Props> = props => {
+const DropdownItem: FunctionComponent<Props> = (props) => {
   const refLink = useRef<HTMLAnchorElement>(null);
 
   return (

@@ -1,8 +1,8 @@
-import { CSSProperties, ElementType } from 'react';
-import { styled } from 'twin.macro';
+import { CSSProperties, ElementType } from "react";
+import { styled } from "twin.macro";
 
 interface Props {
-  basis: CSSProperties['flexBasis'];
+  basis: CSSProperties["flexBasis"];
 }
 
 const FlexItem = styled.div<Props>(({ basis }) => ({

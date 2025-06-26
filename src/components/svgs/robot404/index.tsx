@@ -1,6 +1,6 @@
-import React, { FunctionComponent, SVGProps } from 'react';
+import React, { FunctionComponent, SVGProps } from "react";
 
-const SvgComponent: FunctionComponent<SVGProps<SVGSVGElement>> = props => (
+const SvgComponent: FunctionComponent<SVGProps<SVGSVGElement>> = (props) => (
   <svg width={1155} height={700} viewBox="0 0 1155 700" fill="none" {...props}>
     <path
       fillRule="evenodd"
