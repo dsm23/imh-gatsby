@@ -1,9 +1,9 @@
 /// <reference types="jest" />
 
-import React from 'react';
-import { render } from '@testing-library/react';
+import React from "react";
+import { render } from "@testing-library/react";
 
-import Card from '.';
+import Card from ".";
 
 const renderable = <Card>Card content</Card>;
 

@@ -1,16 +1,16 @@
-import React, { FunctionComponent } from 'react';
-import { graphql, PageRendererProps } from 'gatsby';
-import { Options } from '@contentful/rich-text-react-renderer';
-import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
+import React, { FunctionComponent } from "react";
+import { graphql, PageRendererProps } from "gatsby";
+import { Options } from "@contentful/rich-text-react-renderer";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
 
-import 'twin.macro';
+import "twin.macro";
 
-import Anchor from '../components/anchor';
-import Image from '../components/image';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import { Query } from '../../graphql-types';
+import Anchor from "../components/anchor";
+import Image from "../components/image";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import { Query } from "../../graphql-types";
 
 interface Props extends PageRendererProps {
   data: Query;
@@ -22,7 +22,7 @@ const Bold: FunctionComponent = ({ children }) => (
 
 const options: Options = {
   renderMark: {
-    [MARKS.BOLD]: text => <Bold>{text}</Bold>,
+    [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
   },
   renderNode: {
     [BLOCKS.HEADING_2]: (_, children) => (
@@ -36,7 +36,7 @@ const options: Options = {
       <ul tw="my-2 list-disc list-outside">{children}</ul>
     ),
     [BLOCKS.LIST_ITEM]: (_, children) => <li tw="ml-8">{children}</li>,
-    [BLOCKS.EMBEDDED_ASSET]: node => (
+    [BLOCKS.EMBEDDED_ASSET]: (node) => (
       <Image
         tw="text-center shadow-lg mx-auto max-w-screen-md"
         contentfulId={node?.data?.target?.contentful_id}
@@ -51,7 +51,7 @@ const options: Options = {
 
 const PageTemplate: FunctionComponent<Props> = ({ data, location }) => {
   const body = data?.contentfulPage?.content;
-  const header = data?.contentfulPage?.header ?? '';
+  const header = data?.contentfulPage?.header ?? "";
 
   return (
     <Layout location={location}>

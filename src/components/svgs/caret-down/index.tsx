@@ -1,7 +1,7 @@
-import React, { FunctionComponent, SVGAttributes } from 'react';
-import { theme } from 'twin.macro';
+import React, { FunctionComponent, SVGAttributes } from "react";
+import { theme } from "twin.macro";
 
-const Caret: FunctionComponent<SVGAttributes<SVGSVGElement>> = props => (
+const Caret: FunctionComponent<SVGAttributes<SVGSVGElement>> = (props) => (
   <svg {...props} viewBox="0 0 20 20" fill={`${theme`colors.gray.100`}`}>
     <path
       fillRule="evenodd"

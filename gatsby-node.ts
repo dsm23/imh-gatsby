@@ -1,27 +1,27 @@
-import path from 'path';
-import type { GatsbyNode } from 'gatsby';
-import type { Query } from './graphql-types';
+import path from "path";
+import type { GatsbyNode } from "gatsby";
+import type { Query } from "./graphql-types";
 
 type Config = {
   resolve: object;
   module: object | undefined;
 };
 
-export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
+export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
   actions,
   stage,
   loaders,
 }) => {
   const config: Config = {
     resolve: {
-      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+      modules: [path.resolve(__dirname, "src"), "node_modules"],
     },
 
     module: undefined,
   };
 
   // when building HTML, window is not defined, so Leaflet causes the build to blow up
-  if (stage === 'build-html') {
+  if (stage === "build-html") {
     config.module = {
       rules: [
         {
@@ -35,7 +35,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
   actions.setWebpackConfig(config);
 };
 
-export const createPages: GatsbyNode['createPages'] = async ({
+export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
   actions,
   reporter,
@@ -43,7 +43,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   const { createPage } = actions;
 
   try {
-    const pageTemplate = path.resolve('./src/templates/page.tsx');
+    const pageTemplate = path.resolve("./src/templates/page.tsx");
 
     const result = await graphql<Query>(`
       {
@@ -68,7 +68,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
     const posts = result.data?.allContentfulPage.edges ?? [];
 
-    posts.forEach(post => {
+    posts.forEach((post) => {
       createPage({
         path: `/${post.node.slug}/`,
         component: pageTemplate,

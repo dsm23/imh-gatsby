@@ -1,9 +1,9 @@
 /// <reference types="jest" />
 
-import React from 'react';
-import { render } from '@testing-library/react';
+import React from "react";
+import { render } from "@testing-library/react";
 
-import Anchor from '.';
+import Anchor from ".";
 
 const renderable = <Anchor href="/foo">This is an anchor tag </Anchor>;
 

@@ -3,7 +3,7 @@
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
-require('dotenv').config({
+require("dotenv").config({
   path: `.env`,
 });
 
@@ -16,7 +16,7 @@ const { spaceId, accessToken } = contentfulConfig;
 
 if (!spaceId || !accessToken) {
   throw new Error(
-    'Contentful spaceId and the access token need to be provided.',
+    "Contentful spaceId and the access token need to be provided.",
   );
 }
 
@@ -27,7 +27,7 @@ module.exports = {
     title: `IMH Technologies`,
     description: `IMH website page`,
     author: `dsm23`,
-    mapboxToken: process.env.MAPBOX_API_TOKEN || '',
+    mapboxToken: process.env.MAPBOX_API_TOKEN || "",
     siteUrl,
   },
   plugins: [
@@ -58,15 +58,15 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-contentful',
+      resolve: "gatsby-source-contentful",
       options: contentfulConfig,
     },
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
         host: siteUrl,
         sitemap: `${siteUrl}/sitemap.xml`,
-        policy: [{ userAgent: '*', allow: '/' }],
+        policy: [{ userAgent: "*", allow: "/" }],
       },
     },
     {
@@ -74,8 +74,8 @@ module.exports = {
       options: {
         googleAnalytics: {
           trackingId: process.env.GA_TRACKING_ID,
-          cookieDomain: 'imh.co.uk',
-          cookieName: 'imh-ga',
+          cookieDomain: "imh.co.uk",
+          cookieName: "imh-ga",
           anonymize: true,
         },
       },

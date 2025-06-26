@@ -1,5 +1,5 @@
-import React, { FunctionComponent, HTMLAttributes } from 'react';
-import tw, { styled } from 'twin.macro';
+import React, { FunctionComponent, HTMLAttributes } from "react";
+import tw, { styled } from "twin.macro";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   isOpen: boolean;

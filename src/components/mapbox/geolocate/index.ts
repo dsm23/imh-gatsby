@@ -1,4 +1,4 @@
-import tw, { styled } from 'twin.macro';
+import tw, { styled } from "twin.macro";
 
 const Geolocate = styled.div`
   ${tw`absolute left-0 top-0`}

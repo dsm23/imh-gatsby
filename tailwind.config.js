@@ -1,16 +1,16 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   future: {
     purgeLayersByDefault: true,
   },
   purge: {
-    layers: ['utilities'],
-    content: ['./src/**/*.html', './src/**/*.[jt]s?(x)'],
+    layers: ["utilities"],
+    content: ["./src/**/*.html", "./src/**/*.[jt]s?(x)"],
 
     // These options are passed through directly to PurgeCSS
     options: {
-      defaultExtractor: content => {
+      defaultExtractor: (content) => {
         // Capture as liberally as possible, including things like `h-(screen-1.5)`
         const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [];
 
@@ -21,7 +21,7 @@ module.exports = {
         let output = [];
 
         for (const str of innerMatches) {
-          output = [...output, ...str.split(' ')];
+          output = [...output, ...str.split(" ")];
         }
 
         return output;
@@ -31,7 +31,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
       },
     },
   },

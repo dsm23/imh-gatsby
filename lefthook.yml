@@ -4,16 +4,16 @@ pre-commit:
     prettier:
       run: ./node_modules/.bin/prettier --check {staged_files}
       glob:
-        # - "*.css"
+        - "*.css"
         - "*.ts"
         - "*.js"
         - "*.tsx"
         - "*.jsx"
-        # - "*.md"
-        # - "*.mdx"
-        # - "*.json"
-        # - "*.yml"
-        # - "*.yaml"
+        - "*.md"
+        - "*.mdx"
+        - "*.json"
+        - "*.yml"
+        - "*.yaml"
 
 prepare-commit-msg:
   commands:

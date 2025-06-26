@@ -1,11 +1,11 @@
 /// <reference types="Cypress" />
 
-describe('Lighthouse tests', () => {
+describe("Lighthouse tests", () => {
   beforeEach(() => {
-    cy.visit('/');
+    cy.visit("/");
   });
 
-  it('should pass the audits', function () {
+  it("should pass the audits", function () {
     cy.lighthouse();
     cy.pa11y();
   });

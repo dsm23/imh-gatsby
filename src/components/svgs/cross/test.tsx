@@ -1,9 +1,9 @@
 /// <reference types="jest" />
 
-import React from 'react';
-import { render } from '@testing-library/react';
+import React from "react";
+import { render } from "@testing-library/react";
 
-import Cross from '.';
+import Cross from ".";
 
 const renderable = <Cross />;
 

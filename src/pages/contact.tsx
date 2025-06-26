@@ -1,13 +1,13 @@
-import React, { FunctionComponent } from 'react';
-import { PageRendererProps } from 'gatsby';
+import React, { FunctionComponent } from "react";
+import { PageRendererProps } from "gatsby";
 
-import Anchor from '../components/anchor';
-import FlexItem from '../components/flex-item';
-import Layout from '../components/layout';
-import Map from '../components/location-map';
-import SEO from '../components/seo';
+import Anchor from "../components/anchor";
+import FlexItem from "../components/flex-item";
+import Layout from "../components/layout";
+import Map from "../components/location-map";
+import SEO from "../components/seo";
 
-import 'twin.macro';
+import "twin.macro";
 
 const Contact: FunctionComponent<PageRendererProps> = ({ location }) => (
   <Layout location={location}>

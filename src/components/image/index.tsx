@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import React, { FunctionComponent } from "react";
+import { useStaticQuery, graphql } from "gatsby";
 // import Img, { GatsbyImageProps, FluidObject } from 'gatsby-image';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 
-import { Query, ContentfulAsset } from '../../../graphql-types';
+import { Query, ContentfulAsset } from "../../../graphql-types";
 
 // type Props = Omit<GatsbyImageProps, 'fixed'> & {
 //   contentfulId: ContentfulAsset['contentful_id'];

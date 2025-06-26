@@ -1,11 +1,11 @@
-import React, { FunctionComponent, ButtonHTMLAttributes } from 'react';
-import { PageRendererProps } from 'gatsby';
-import CookieConsent from 'react-cookie-consent';
-import tw from 'twin.macro';
+import React, { FunctionComponent, ButtonHTMLAttributes } from "react";
+import { PageRendererProps } from "gatsby";
+import CookieConsent from "react-cookie-consent";
+import tw from "twin.macro";
 
-import Nav from '../nav';
+import Nav from "../nav";
 
-import 'twin.macro';
+import "twin.macro";
 
 const Button: FunctionComponent<ButtonHTMLAttributes<HTMLButtonElement>> = ({
   children,

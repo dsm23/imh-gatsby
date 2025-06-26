@@ -4,25 +4,25 @@ import React, {
   useEffect,
   useRef,
   useState,
-} from 'react';
-import lottie, { AnimationItem, AnimationConfigWithData } from 'lottie-web';
-import { useIntersection } from 'react-use';
-import animationData from '../../animations/waveLine.json';
+} from "react";
+import lottie, { AnimationItem, AnimationConfigWithData } from "lottie-web";
+import { useIntersection } from "react-use";
+import animationData from "../../animations/waveLine.json";
 
-import 'twin.macro';
+import "twin.macro";
 
-type OptionsConfig = Omit<AnimationConfigWithData, 'container'>;
+type OptionsConfig = Omit<AnimationConfigWithData, "container">;
 
 const options: OptionsConfig = {
   loop: false,
   animationData,
-  renderer: 'svg',
+  renderer: "svg",
   rendererSettings: {
     // width matches viewBox
-    preserveAspectRatio: 'xMinYMid slice',
+    preserveAspectRatio: "xMinYMid slice",
     progressiveLoad: true,
     // unique to waveLine
-    viewBoxSize: '0 300 1155 100',
+    viewBoxSize: "0 300 1155 100",
     viewBoxOnly: true,
   },
 };
@@ -30,13 +30,13 @@ const options: OptionsConfig = {
 const startFrame = 0;
 const endFrame = 100;
 
-const Divisor: FunctionComponent<HTMLAttributes<HTMLDivElement>> = props => {
+const Divisor: FunctionComponent<HTMLAttributes<HTMLDivElement>> = (props) => {
   const animationContainer = useRef<HTMLDivElement>(null);
   const [autoplay, setAutoplay] = useState<boolean>(false);
 
   const intersection = useIntersection(animationContainer, {
     root: null,
-    rootMargin: '0px',
+    rootMargin: "0px",
     threshold: 1,
   });
 
