@@ -38,9 +38,6 @@ importers:
       gatsby-plugin-manifest:
         specifier: ^4.16.0
         version: 4.25.0(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(type-fest@4.41.0)(typescript@5.8.3))(graphql@15.10.1)
-      gatsby-plugin-netlify:
-        specifier: ^5.0.0
-        version: 5.1.1(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(type-fest@4.41.0)(typescript@5.8.3))(webpack@5.98.0)
       gatsby-plugin-offline:
         specifier: ^5.16.0
         version: 5.25.0(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(type-fest@4.41.0)(typescript@5.8.3))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
@@ -4447,12 +4444,6 @@ packages:
     peerDependencies:
       gatsby: ^4.0.0-next
 
-  gatsby-plugin-netlify@5.1.1:
-    resolution: {integrity: sha512-CembvYjbP7NJvVIdffqWaBKXMHIxYBKBEoXFGvCKX+8phRNkfmjnvoljoOakv0ypHBpgjgtpa7Nvc3PI+IjB1A==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      gatsby: ^4.0.0 || ^5.0.0
-
   gatsby-plugin-offline@5.25.0:
     resolution: {integrity: sha512-WqAcnYvMpL1xwXF5Jf9BXTihLNktuqQHFUX0TPsQVJrmfjSNv4LxhgiWfeUuGiCO881EOHClXnBn6TqxIdS4EA==}
     engines: {node: '>=14.15.0'}
@@ -5635,9 +5626,6 @@ packages:
   kdbush@4.0.2:
     resolution: {integrity: sha512-WbCVYJ27Sz8zi9Q7Q0xHC+05iwkm3Znipc2XTlrnJbsHMYktW4hPhXUE8Ys1engBrvffoSCqbil1JQAa7clRpA==}
 
-  kebab-hash@0.1.2:
-    resolution: {integrity: sha512-BTZpq3xgISmQmAVzkISy4eUutsUA7s4IEFlCwOBJjvSFOwyR7I+fza+tBc/rzYWK/NrmFHjfU1IhO3lu29Ib/w==}
-
   keyv@3.1.0:
     resolution: {integrity: sha512-9ykJ/46SN/9KPM/sichzQ7OvXyGDYKGTaDlKMGCAlg2UK8KRy4jb0d8sFc+0Tt0YYnThq8X2RZgCg74RPxgcVA==}
 
@@ -5801,9 +5789,6 @@ packages:
   lock@1.1.0:
     resolution: {integrity: sha512-NZQIJJL5Rb9lMJ0Yl1JoVr9GSdo4HTPsUEWsSFzB8dE8DSoiLCVavWZPi7Rnlv/o73u6I24S/XYc/NmG4l8EKA==}
 
-  lockfile@1.0.4:
-    resolution: {integrity: sha512-cvbTwETRfsFh4nHsL1eGWapU1XFi5Ot9E85sWAwia7Y7EgB7vfqcZhTKZ+l7hCGxSPoushMv5GKhT5PdLv03WA==}
-
   lodash._reinterpolate@3.0.0:
     resolution: {integrity: sha512-xYHt68QRoYGjeeM/XOE1uJtvXQAgvszfBhjV4yvsQH0u2i9I6cI6c6/eG4Hh3UAOVn0y/xAXwmTzEay49Q//HA==}
 
@@ -5834,9 +5819,6 @@ packages:
   lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
     deprecated: This package is deprecated. Use the optional chaining (?.) operator instead.
-
-  lodash.has@4.5.2:
-    resolution: {integrity: sha512-rnYUdIo6xRCJnQmbVFEwcxF144erlD+M3YcJUVesflU9paQaE8p+fJDcIQrlMYbxoANFL+AB9hZrzSBBk5PL+g==}
 
   lodash.isequal@4.5.0:
     resolution: {integrity: sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==}
@@ -8415,12 +8397,6 @@ packages:
 
   webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
-
-  webpack-assets-manifest@5.2.1:
-    resolution: {integrity: sha512-MsEcXVio1GY6R+b4dVfTHIDMB0RB90KajQG8neRbH92vE2S1ClGw9mNa9NPlratYBvZOhExmN0qqMNFTaCTuIg==}
-    engines: {node: '>=10.13.0'}
-    peerDependencies:
-      webpack: ^5.2.0
 
   webpack-dev-middleware@4.3.0:
     resolution: {integrity: sha512-PjwyVY95/bhBh6VUqt6z4THplYcsvQ8YNNBTBM873xLVmw8FLeALn0qurHbs9EmcfhzQis/eoqypSnZeuUz26w==}
@@ -14171,18 +14147,6 @@ snapshots:
     transitivePeerDependencies:
       - graphql
 
-  gatsby-plugin-netlify@5.1.1(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(type-fest@4.41.0)(typescript@5.8.3))(webpack@5.98.0):
-    dependencies:
-      '@babel/runtime': 7.27.6
-      fs-extra: 11.3.0
-      gatsby: 4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(type-fest@4.41.0)(typescript@5.8.3)
-      gatsby-core-utils: 4.14.0
-      kebab-hash: 0.1.2
-      lodash.mergewith: 4.6.2
-      webpack-assets-manifest: 5.2.1(webpack@5.98.0)
-    transitivePeerDependencies:
-      - webpack
-
   gatsby-plugin-offline@5.25.0(gatsby@4.25.9(babel-eslint@10.1.0(eslint@7.32.0))(react-dom@17.0.2(react@17.0.2))(react@17.0.2)(type-fest@4.41.0)(typescript@5.8.3))(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
     dependencies:
       '@babel/runtime': 7.27.6
@@ -15859,10 +15823,6 @@ snapshots:
 
   kdbush@4.0.2: {}
 
-  kebab-hash@0.1.2:
-    dependencies:
-      lodash.kebabcase: 4.1.1
-
   keyv@3.1.0:
     dependencies:
       json-buffer: 3.0.0
@@ -16063,10 +16023,6 @@ snapshots:
 
   lock@1.1.0: {}
 
-  lockfile@1.0.4:
-    dependencies:
-      signal-exit: 3.0.7
-
   lodash._reinterpolate@3.0.0: {}
 
   lodash.camelcase@4.3.0: {}
@@ -16086,8 +16042,6 @@ snapshots:
   lodash.foreach@4.5.0: {}
 
   lodash.get@4.4.2: {}
-
-  lodash.has@4.5.2: {}
 
   lodash.isequal@4.5.0: {}
 
@@ -18903,17 +18857,6 @@ snapshots:
   weak-lru-cache@1.2.2: {}
 
   webidl-conversions@3.0.1: {}
-
-  webpack-assets-manifest@5.2.1(webpack@5.98.0):
-    dependencies:
-      chalk: 4.1.2
-      deepmerge: 4.3.1
-      lockfile: 1.0.4
-      lodash.get: 4.4.2
-      lodash.has: 4.5.2
-      schema-utils: 3.3.0
-      tapable: 2.2.2
-      webpack: 5.98.0
 
   webpack-dev-middleware@4.3.0(webpack@5.98.0):
     dependencies:
