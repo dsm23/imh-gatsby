@@ -1,8 +1,14 @@
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   /** The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID. */
@@ -70,14 +76,12 @@ export type File = Node & {
   internal: Internal;
 };
 
-
 export type FileModifiedTimeArgs = {
   formatString?: InputMaybe<Scalars['String']>;
   fromNow?: InputMaybe<Scalars['Boolean']>;
   difference?: InputMaybe<Scalars['String']>;
   locale?: InputMaybe<Scalars['String']>;
 };
-
 
 export type FileAccessTimeArgs = {
   formatString?: InputMaybe<Scalars['String']>;
@@ -86,14 +90,12 @@ export type FileAccessTimeArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
-
 export type FileChangeTimeArgs = {
   formatString?: InputMaybe<Scalars['String']>;
   fromNow?: InputMaybe<Scalars['Boolean']>;
   difference?: InputMaybe<Scalars['String']>;
   locale?: InputMaybe<Scalars['String']>;
 };
-
 
 export type FileBirthTimeArgs = {
   formatString?: InputMaybe<Scalars['String']>;
@@ -102,7 +104,6 @@ export type FileBirthTimeArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
-
 export type FileAtimeArgs = {
   formatString?: InputMaybe<Scalars['String']>;
   fromNow?: InputMaybe<Scalars['Boolean']>;
@@ -110,14 +111,12 @@ export type FileAtimeArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
-
 export type FileMtimeArgs = {
   formatString?: InputMaybe<Scalars['String']>;
   fromNow?: InputMaybe<Scalars['Boolean']>;
   difference?: InputMaybe<Scalars['String']>;
   locale?: InputMaybe<Scalars['String']>;
 };
-
 
 export type FileCtimeArgs = {
   formatString?: InputMaybe<Scalars['String']>;
@@ -186,14 +185,12 @@ export type Directory = Node & {
   internal: Internal;
 };
 
-
 export type DirectoryModifiedTimeArgs = {
   formatString?: InputMaybe<Scalars['String']>;
   fromNow?: InputMaybe<Scalars['Boolean']>;
   difference?: InputMaybe<Scalars['String']>;
   locale?: InputMaybe<Scalars['String']>;
 };
-
 
 export type DirectoryAccessTimeArgs = {
   formatString?: InputMaybe<Scalars['String']>;
@@ -202,14 +199,12 @@ export type DirectoryAccessTimeArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
-
 export type DirectoryChangeTimeArgs = {
   formatString?: InputMaybe<Scalars['String']>;
   fromNow?: InputMaybe<Scalars['Boolean']>;
   difference?: InputMaybe<Scalars['String']>;
   locale?: InputMaybe<Scalars['String']>;
 };
-
 
 export type DirectoryBirthTimeArgs = {
   formatString?: InputMaybe<Scalars['String']>;
@@ -218,7 +213,6 @@ export type DirectoryBirthTimeArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
-
 export type DirectoryAtimeArgs = {
   formatString?: InputMaybe<Scalars['String']>;
   fromNow?: InputMaybe<Scalars['Boolean']>;
@@ -226,14 +220,12 @@ export type DirectoryAtimeArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
-
 export type DirectoryMtimeArgs = {
   formatString?: InputMaybe<Scalars['String']>;
   fromNow?: InputMaybe<Scalars['Boolean']>;
   difference?: InputMaybe<Scalars['String']>;
   locale?: InputMaybe<Scalars['String']>;
 };
-
 
 export type DirectoryCtimeArgs = {
   formatString?: InputMaybe<Scalars['String']>;
@@ -257,7 +249,6 @@ export type Site = Node & {
   children: Array<Node>;
   internal: Internal;
 };
-
 
 export type SiteBuildTimeArgs = {
   formatString?: InputMaybe<Scalars['String']>;
@@ -326,7 +317,6 @@ export type SiteBuildMetadata = Node & {
   internal: Internal;
 };
 
-
 export type SiteBuildMetadataBuildTimeArgs = {
   formatString?: InputMaybe<Scalars['String']>;
   fromNow?: InputMaybe<Scalars['Boolean']>;
@@ -342,10 +332,7 @@ export type GatsbyImageFormat =
   | 'WEBP'
   | 'AVIF';
 
-export type GatsbyImageLayout =
-  | 'FIXED'
-  | 'FULL_WIDTH'
-  | 'CONSTRAINED';
+export type GatsbyImageLayout = 'FIXED' | 'FULL_WIDTH' | 'CONSTRAINED';
 
 export type GatsbyImagePlaceholder =
   | 'DOMINANT_COLOR'
@@ -361,17 +348,9 @@ export type ImageFormat =
   | 'WEBP'
   | 'AVIF';
 
-export type ImageFit =
-  | 'COVER'
-  | 'CONTAIN'
-  | 'FILL'
-  | 'INSIDE'
-  | 'OUTSIDE';
+export type ImageFit = 'COVER' | 'CONTAIN' | 'FILL' | 'INSIDE' | 'OUTSIDE';
 
-export type ImageLayout =
-  | 'FIXED'
-  | 'FULL_WIDTH'
-  | 'CONSTRAINED';
+export type ImageLayout = 'FIXED' | 'FULL_WIDTH' | 'CONSTRAINED';
 
 export type ImageCropFocus =
   | 'CENTER'
@@ -424,7 +403,6 @@ export type ImageSharp = Node & {
   internal: Internal;
 };
 
-
 export type ImageSharpFixedArgs = {
   width?: InputMaybe<Scalars['Int']>;
   height?: InputMaybe<Scalars['Int']>;
@@ -446,7 +424,6 @@ export type ImageSharpFixedArgs = {
   rotate?: InputMaybe<Scalars['Int']>;
   trim?: InputMaybe<Scalars['Float']>;
 };
-
 
 export type ImageSharpFluidArgs = {
   maxWidth?: InputMaybe<Scalars['Int']>;
@@ -472,7 +449,6 @@ export type ImageSharpFluidArgs = {
   srcSetBreakpoints?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
 };
 
-
 export type ImageSharpGatsbyImageDataArgs = {
   layout?: InputMaybe<ImageLayout>;
   width?: InputMaybe<Scalars['Int']>;
@@ -493,7 +469,6 @@ export type ImageSharpGatsbyImageDataArgs = {
   transformOptions?: InputMaybe<TransformOptions>;
   backgroundColor?: InputMaybe<Scalars['String']>;
 };
-
 
 export type ImageSharpResizeArgs = {
   width?: InputMaybe<Scalars['Int']>;
@@ -616,35 +591,36 @@ export type ContentfulReference = {
   id: Scalars['ID'];
 };
 
-export type ContentfulAsset = ContentfulReference & Node & RemoteFile & {
-  contentful_id: Scalars['String'];
-  id: Scalars['ID'];
-  gatsbyImageData?: Maybe<Scalars['GatsbyImageData']>;
-  spaceId?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  file?: Maybe<ContentfulAssetFile>;
-  title?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
-  node_locale?: Maybe<Scalars['String']>;
-  sys?: Maybe<ContentfulAssetSys>;
-  url?: Maybe<Scalars['String']>;
-  placeholderUrl?: Maybe<Scalars['String']>;
-  mimeType: Scalars['String'];
-  filename: Scalars['String'];
-  width?: Maybe<Scalars['Int']>;
-  height?: Maybe<Scalars['Int']>;
-  size?: Maybe<Scalars['Int']>;
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  filesize?: Maybe<Scalars['Int']>;
-  publicUrl: Scalars['String'];
-  resize?: Maybe<RemoteFileResize>;
-  /** Data used in the <GatsbyImage /> component. See https://gatsby.dev/img for more info. */
-  gatsbyImage?: Maybe<Scalars['GatsbyImageData']>;
-};
-
+export type ContentfulAsset = ContentfulReference &
+  Node &
+  RemoteFile & {
+    contentful_id: Scalars['String'];
+    id: Scalars['ID'];
+    gatsbyImageData?: Maybe<Scalars['GatsbyImageData']>;
+    spaceId?: Maybe<Scalars['String']>;
+    createdAt?: Maybe<Scalars['Date']>;
+    updatedAt?: Maybe<Scalars['Date']>;
+    file?: Maybe<ContentfulAssetFile>;
+    title?: Maybe<Scalars['String']>;
+    description?: Maybe<Scalars['String']>;
+    node_locale?: Maybe<Scalars['String']>;
+    sys?: Maybe<ContentfulAssetSys>;
+    url?: Maybe<Scalars['String']>;
+    placeholderUrl?: Maybe<Scalars['String']>;
+    mimeType: Scalars['String'];
+    filename: Scalars['String'];
+    width?: Maybe<Scalars['Int']>;
+    height?: Maybe<Scalars['Int']>;
+    size?: Maybe<Scalars['Int']>;
+    parent?: Maybe<Node>;
+    children: Array<Node>;
+    internal: Internal;
+    filesize?: Maybe<Scalars['Int']>;
+    publicUrl: Scalars['String'];
+    resize?: Maybe<RemoteFileResize>;
+    /** Data used in the <GatsbyImage /> component. See https://gatsby.dev/img for more info. */
+    gatsbyImage?: Maybe<Scalars['GatsbyImageData']>;
+  };
 
 export type ContentfulAssetGatsbyImageDataArgs = {
   layout?: InputMaybe<GatsbyImageLayout>;
@@ -664,7 +640,6 @@ export type ContentfulAssetGatsbyImageDataArgs = {
   quality?: InputMaybe<Scalars['Int']>;
 };
 
-
 export type ContentfulAssetCreatedAtArgs = {
   formatString?: InputMaybe<Scalars['String']>;
   fromNow?: InputMaybe<Scalars['Boolean']>;
@@ -672,14 +647,12 @@ export type ContentfulAssetCreatedAtArgs = {
   locale?: InputMaybe<Scalars['String']>;
 };
 
-
 export type ContentfulAssetUpdatedAtArgs = {
   formatString?: InputMaybe<Scalars['String']>;
   fromNow?: InputMaybe<Scalars['Boolean']>;
   difference?: InputMaybe<Scalars['String']>;
   locale?: InputMaybe<Scalars['String']>;
 };
-
 
 export type ContentfulAssetResizeArgs = {
   width?: InputMaybe<Scalars['Int']>;
@@ -690,7 +663,6 @@ export type ContentfulAssetResizeArgs = {
   cropFocus?: InputMaybe<Array<InputMaybe<RemoteFileCropFocus>>>;
   quality?: InputMaybe<Scalars['Int']>;
 };
-
 
 export type ContentfulAssetGatsbyImageArgs = {
   layout?: InputMaybe<RemoteFileLayout>;
@@ -722,7 +694,6 @@ export type RemoteFile = {
   gatsbyImage?: Maybe<Scalars['GatsbyImageData']>;
 };
 
-
 /** Remote Interface */
 export type RemoteFileResizeArgs = {
   width?: InputMaybe<Scalars['Int']>;
@@ -733,7 +704,6 @@ export type RemoteFileResizeArgs = {
   cropFocus?: InputMaybe<Array<InputMaybe<RemoteFileCropFocus>>>;
   quality?: InputMaybe<Scalars['Int']>;
 };
-
 
 /** Remote Interface */
 export type RemoteFileGatsbyImageArgs = {
@@ -758,18 +728,9 @@ export type RemoteFileResize = {
   src?: Maybe<Scalars['String']>;
 };
 
-export type RemoteFileFit =
-  | 'COVER'
-  | 'FILL'
-  | 'OUTSIDE'
-  | 'CONTAIN';
+export type RemoteFileFit = 'COVER' | 'FILL' | 'OUTSIDE' | 'CONTAIN';
 
-export type RemoteFileFormat =
-  | 'AUTO'
-  | 'JPG'
-  | 'PNG'
-  | 'WEBP'
-  | 'AVIF';
+export type RemoteFileFormat = 'AUTO' | 'JPG' | 'PNG' | 'WEBP' | 'AVIF';
 
 export type RemoteFileCropFocus =
   | 'CENTER'
@@ -781,10 +742,7 @@ export type RemoteFileCropFocus =
   | 'EDGES'
   | 'FACES';
 
-export type RemoteFileLayout =
-  | 'FIXED'
-  | 'FULL_WIDTH'
-  | 'CONSTRAINED';
+export type RemoteFileLayout = 'FIXED' | 'FULL_WIDTH' | 'CONSTRAINED';
 
 export type RemoteFilePlaceholder =
   | 'DOMINANT_COLOR'
@@ -840,22 +798,23 @@ export type ContentfulAssetSys = {
   revision?: Maybe<Scalars['Int']>;
 };
 
-export type ContentfulPage = ContentfulReference & ContentfulEntry & Node & {
-  contentful_id: Scalars['String'];
-  id: Scalars['ID'];
-  node_locale: Scalars['String'];
-  header?: Maybe<Scalars['String']>;
-  content?: Maybe<ContentfulPageContent>;
-  slug?: Maybe<Scalars['String']>;
-  spaceId?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulPageSys>;
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-};
-
+export type ContentfulPage = ContentfulReference &
+  ContentfulEntry &
+  Node & {
+    contentful_id: Scalars['String'];
+    id: Scalars['ID'];
+    node_locale: Scalars['String'];
+    header?: Maybe<Scalars['String']>;
+    content?: Maybe<ContentfulPageContent>;
+    slug?: Maybe<Scalars['String']>;
+    spaceId?: Maybe<Scalars['String']>;
+    createdAt?: Maybe<Scalars['Date']>;
+    updatedAt?: Maybe<Scalars['Date']>;
+    sys?: Maybe<ContentfulPageSys>;
+    parent?: Maybe<Node>;
+    children: Array<Node>;
+    internal: Internal;
+  };
 
 export type ContentfulPageCreatedAtArgs = {
   formatString?: InputMaybe<Scalars['String']>;
@@ -863,7 +822,6 @@ export type ContentfulPageCreatedAtArgs = {
   difference?: InputMaybe<Scalars['String']>;
   locale?: InputMaybe<Scalars['String']>;
 };
-
 
 export type ContentfulPageUpdatedAtArgs = {
   formatString?: InputMaybe<Scalars['String']>;
@@ -893,21 +851,22 @@ export type ContentfulPageSysContentTypeSys = {
   id?: Maybe<Scalars['String']>;
 };
 
-export type ContentfulCard = ContentfulReference & ContentfulEntry & Node & {
-  contentful_id: Scalars['String'];
-  id: Scalars['ID'];
-  node_locale: Scalars['String'];
-  entryUnused?: Maybe<Scalars['String']>;
-  body?: Maybe<ContentfulCardBody>;
-  spaceId?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulCardSys>;
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-};
-
+export type ContentfulCard = ContentfulReference &
+  ContentfulEntry &
+  Node & {
+    contentful_id: Scalars['String'];
+    id: Scalars['ID'];
+    node_locale: Scalars['String'];
+    entryUnused?: Maybe<Scalars['String']>;
+    body?: Maybe<ContentfulCardBody>;
+    spaceId?: Maybe<Scalars['String']>;
+    createdAt?: Maybe<Scalars['Date']>;
+    updatedAt?: Maybe<Scalars['Date']>;
+    sys?: Maybe<ContentfulCardSys>;
+    parent?: Maybe<Node>;
+    children: Array<Node>;
+    internal: Internal;
+  };
 
 export type ContentfulCardCreatedAtArgs = {
   formatString?: InputMaybe<Scalars['String']>;
@@ -915,7 +874,6 @@ export type ContentfulCardCreatedAtArgs = {
   difference?: InputMaybe<Scalars['String']>;
   locale?: InputMaybe<Scalars['String']>;
 };
-
 
 export type ContentfulCardUpdatedAtArgs = {
   formatString?: InputMaybe<Scalars['String']>;
@@ -945,22 +903,23 @@ export type ContentfulCardSysContentTypeSys = {
   id?: Maybe<Scalars['String']>;
 };
 
-export type ContentfulWelcome = ContentfulReference & ContentfulEntry & Node & {
-  contentful_id: Scalars['String'];
-  id: Scalars['ID'];
-  node_locale: Scalars['String'];
-  header?: Maybe<Scalars['String']>;
-  body?: Maybe<ContentfulWelcomeBody>;
-  welcomePic?: Maybe<ContentfulAsset>;
-  spaceId?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulWelcomeSys>;
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-};
-
+export type ContentfulWelcome = ContentfulReference &
+  ContentfulEntry &
+  Node & {
+    contentful_id: Scalars['String'];
+    id: Scalars['ID'];
+    node_locale: Scalars['String'];
+    header?: Maybe<Scalars['String']>;
+    body?: Maybe<ContentfulWelcomeBody>;
+    welcomePic?: Maybe<ContentfulAsset>;
+    spaceId?: Maybe<Scalars['String']>;
+    createdAt?: Maybe<Scalars['Date']>;
+    updatedAt?: Maybe<Scalars['Date']>;
+    sys?: Maybe<ContentfulWelcomeSys>;
+    parent?: Maybe<Node>;
+    children: Array<Node>;
+    internal: Internal;
+  };
 
 export type ContentfulWelcomeCreatedAtArgs = {
   formatString?: InputMaybe<Scalars['String']>;
@@ -968,7 +927,6 @@ export type ContentfulWelcomeCreatedAtArgs = {
   difference?: InputMaybe<Scalars['String']>;
   locale?: InputMaybe<Scalars['String']>;
 };
-
 
 export type ContentfulWelcomeUpdatedAtArgs = {
   formatString?: InputMaybe<Scalars['String']>;
@@ -997,23 +955,27 @@ export type ContentfulWelcomeSysContentTypeSys = {
   id?: Maybe<Scalars['String']>;
 };
 
-export type ContentfulAuthor = ContentfulReference & ContentfulEntry & Node & {
-  contentful_id: Scalars['String'];
-  id: Scalars['ID'];
-  node_locale: Scalars['String'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-};
+export type ContentfulAuthor = ContentfulReference &
+  ContentfulEntry &
+  Node & {
+    contentful_id: Scalars['String'];
+    id: Scalars['ID'];
+    node_locale: Scalars['String'];
+    parent?: Maybe<Node>;
+    children: Array<Node>;
+    internal: Internal;
+  };
 
-export type ContentfulPost = ContentfulReference & ContentfulEntry & Node & {
-  contentful_id: Scalars['String'];
-  id: Scalars['ID'];
-  node_locale: Scalars['String'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-};
+export type ContentfulPost = ContentfulReference &
+  ContentfulEntry &
+  Node & {
+    contentful_id: Scalars['String'];
+    id: Scalars['ID'];
+    node_locale: Scalars['String'];
+    parent?: Maybe<Node>;
+    children: Array<Node>;
+    internal: Internal;
+  };
 
 export type ContentfulContentType = Node & {
   id: Scalars['ID'];
@@ -1065,7 +1027,6 @@ export type Query = {
   allContentfulContentType: ContentfulContentTypeConnection;
 };
 
-
 export type QueryFileArgs = {
   sourceInstanceName?: InputMaybe<StringQueryOperatorInput>;
   absolutePath?: InputMaybe<StringQueryOperatorInput>;
@@ -1109,14 +1070,12 @@ export type QueryFileArgs = {
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-
 export type QueryAllFileArgs = {
   filter?: InputMaybe<FileFilterInput>;
   sort?: InputMaybe<FileSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
-
 
 export type QueryDirectoryArgs = {
   sourceInstanceName?: InputMaybe<StringQueryOperatorInput>;
@@ -1156,14 +1115,12 @@ export type QueryDirectoryArgs = {
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-
 export type QueryAllDirectoryArgs = {
   filter?: InputMaybe<DirectoryFilterInput>;
   sort?: InputMaybe<DirectorySortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
-
 
 export type QuerySiteArgs = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
@@ -1181,14 +1138,12 @@ export type QuerySiteArgs = {
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-
 export type QueryAllSiteArgs = {
   filter?: InputMaybe<SiteFilterInput>;
   sort?: InputMaybe<SiteSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
-
 
 export type QuerySiteFunctionArgs = {
   functionRoute?: InputMaybe<StringQueryOperatorInput>;
@@ -1204,14 +1159,12 @@ export type QuerySiteFunctionArgs = {
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-
 export type QueryAllSiteFunctionArgs = {
   filter?: InputMaybe<SiteFunctionFilterInput>;
   sort?: InputMaybe<SiteFunctionSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
-
 
 export type QuerySitePageArgs = {
   path?: InputMaybe<StringQueryOperatorInput>;
@@ -1227,14 +1180,12 @@ export type QuerySitePageArgs = {
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-
 export type QueryAllSitePageArgs = {
   filter?: InputMaybe<SitePageFilterInput>;
   sort?: InputMaybe<SitePageSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
-
 
 export type QuerySitePluginArgs = {
   resolve?: InputMaybe<StringQueryOperatorInput>;
@@ -1252,14 +1203,12 @@ export type QuerySitePluginArgs = {
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-
 export type QueryAllSitePluginArgs = {
   filter?: InputMaybe<SitePluginFilterInput>;
   sort?: InputMaybe<SitePluginSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
-
 
 export type QuerySiteBuildMetadataArgs = {
   buildTime?: InputMaybe<DateQueryOperatorInput>;
@@ -1269,14 +1218,12 @@ export type QuerySiteBuildMetadataArgs = {
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-
 export type QueryAllSiteBuildMetadataArgs = {
   filter?: InputMaybe<SiteBuildMetadataFilterInput>;
   sort?: InputMaybe<SiteBuildMetadataSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
-
 
 export type QueryImageSharpArgs = {
   fixed?: InputMaybe<ImageSharpFixedFilterInput>;
@@ -1290,14 +1237,12 @@ export type QueryImageSharpArgs = {
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-
 export type QueryAllImageSharpArgs = {
   filter?: InputMaybe<ImageSharpFilterInput>;
   sort?: InputMaybe<ImageSharpSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
-
 
 export type QueryContentfulEntryArgs = {
   contentful_id?: InputMaybe<StringQueryOperatorInput>;
@@ -1308,14 +1253,12 @@ export type QueryContentfulEntryArgs = {
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-
 export type QueryAllContentfulEntryArgs = {
   filter?: InputMaybe<ContentfulEntryFilterInput>;
   sort?: InputMaybe<ContentfulEntrySortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
-
 
 export type QueryContentfulAssetArgs = {
   contentful_id?: InputMaybe<StringQueryOperatorInput>;
@@ -1345,14 +1288,12 @@ export type QueryContentfulAssetArgs = {
   gatsbyImage?: InputMaybe<GatsbyImageDataQueryOperatorInput>;
 };
 
-
 export type QueryAllContentfulAssetArgs = {
   filter?: InputMaybe<ContentfulAssetFilterInput>;
   sort?: InputMaybe<ContentfulAssetSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
-
 
 export type QueryContentfulPageArgs = {
   contentful_id?: InputMaybe<StringQueryOperatorInput>;
@@ -1370,14 +1311,12 @@ export type QueryContentfulPageArgs = {
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-
 export type QueryAllContentfulPageArgs = {
   filter?: InputMaybe<ContentfulPageFilterInput>;
   sort?: InputMaybe<ContentfulPageSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
-
 
 export type QueryContentfulCardArgs = {
   contentful_id?: InputMaybe<StringQueryOperatorInput>;
@@ -1394,14 +1333,12 @@ export type QueryContentfulCardArgs = {
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-
 export type QueryAllContentfulCardArgs = {
   filter?: InputMaybe<ContentfulCardFilterInput>;
   sort?: InputMaybe<ContentfulCardSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
-
 
 export type QueryContentfulWelcomeArgs = {
   contentful_id?: InputMaybe<StringQueryOperatorInput>;
@@ -1419,14 +1356,12 @@ export type QueryContentfulWelcomeArgs = {
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-
 export type QueryAllContentfulWelcomeArgs = {
   filter?: InputMaybe<ContentfulWelcomeFilterInput>;
   sort?: InputMaybe<ContentfulWelcomeSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
-
 
 export type QueryContentfulAuthorArgs = {
   contentful_id?: InputMaybe<StringQueryOperatorInput>;
@@ -1437,14 +1372,12 @@ export type QueryContentfulAuthorArgs = {
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-
 export type QueryAllContentfulAuthorArgs = {
   filter?: InputMaybe<ContentfulAuthorFilterInput>;
   sort?: InputMaybe<ContentfulAuthorSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
-
 
 export type QueryContentfulPostArgs = {
   contentful_id?: InputMaybe<StringQueryOperatorInput>;
@@ -1455,14 +1388,12 @@ export type QueryContentfulPostArgs = {
   internal?: InputMaybe<InternalFilterInput>;
 };
 
-
 export type QueryAllContentfulPostArgs = {
   filter?: InputMaybe<ContentfulPostFilterInput>;
   sort?: InputMaybe<ContentfulPostSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
-
 
 export type QueryContentfulContentTypeArgs = {
   id?: InputMaybe<StringQueryOperatorInput>;
@@ -1474,7 +1405,6 @@ export type QueryContentfulContentTypeArgs = {
   description?: InputMaybe<StringQueryOperatorInput>;
   sys?: InputMaybe<ContentfulContentTypeSysFilterInput>;
 };
-
 
 export type QueryAllContentfulContentTypeArgs = {
   filter?: InputMaybe<ContentfulContentTypeFilterInput>;
@@ -1633,26 +1563,21 @@ export type FileConnection = {
   group: Array<FileGroupConnection>;
 };
 
-
 export type FileConnectionDistinctArgs = {
   field: FileFieldsEnum;
 };
-
 
 export type FileConnectionMaxArgs = {
   field: FileFieldsEnum;
 };
 
-
 export type FileConnectionMinArgs = {
   field: FileFieldsEnum;
 };
 
-
 export type FileConnectionSumArgs = {
   field: FileFieldsEnum;
 };
-
 
 export type FileConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -1966,26 +1891,21 @@ export type FileGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-
 export type FileGroupConnectionDistinctArgs = {
   field: FileFieldsEnum;
 };
-
 
 export type FileGroupConnectionMaxArgs = {
   field: FileFieldsEnum;
 };
 
-
 export type FileGroupConnectionMinArgs = {
   field: FileFieldsEnum;
 };
 
-
 export type FileGroupConnectionSumArgs = {
   field: FileFieldsEnum;
 };
-
 
 export type FileGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -2041,9 +1961,7 @@ export type FileSortInput = {
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
-export type SortOrderEnum =
-  | 'ASC'
-  | 'DESC';
+export type SortOrderEnum = 'ASC' | 'DESC';
 
 export type DirectoryConnection = {
   totalCount: Scalars['Int'];
@@ -2057,26 +1975,21 @@ export type DirectoryConnection = {
   group: Array<DirectoryGroupConnection>;
 };
 
-
 export type DirectoryConnectionDistinctArgs = {
   field: DirectoryFieldsEnum;
 };
-
 
 export type DirectoryConnectionMaxArgs = {
   field: DirectoryFieldsEnum;
 };
 
-
 export type DirectoryConnectionMinArgs = {
   field: DirectoryFieldsEnum;
 };
 
-
 export type DirectoryConnectionSumArgs = {
   field: DirectoryFieldsEnum;
 };
-
 
 export type DirectoryConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -2230,26 +2143,21 @@ export type DirectoryGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-
 export type DirectoryGroupConnectionDistinctArgs = {
   field: DirectoryFieldsEnum;
 };
-
 
 export type DirectoryGroupConnectionMaxArgs = {
   field: DirectoryFieldsEnum;
 };
 
-
 export type DirectoryGroupConnectionMinArgs = {
   field: DirectoryFieldsEnum;
 };
 
-
 export type DirectoryGroupConnectionSumArgs = {
   field: DirectoryFieldsEnum;
 };
-
 
 export type DirectoryGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -2320,26 +2228,21 @@ export type SiteConnection = {
   group: Array<SiteGroupConnection>;
 };
 
-
 export type SiteConnectionDistinctArgs = {
   field: SiteFieldsEnum;
 };
-
 
 export type SiteConnectionMaxArgs = {
   field: SiteFieldsEnum;
 };
 
-
 export type SiteConnectionMinArgs = {
   field: SiteFieldsEnum;
 };
 
-
 export type SiteConnectionSumArgs = {
   field: SiteFieldsEnum;
 };
-
 
 export type SiteConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -2475,26 +2378,21 @@ export type SiteGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-
 export type SiteGroupConnectionDistinctArgs = {
   field: SiteFieldsEnum;
 };
-
 
 export type SiteGroupConnectionMaxArgs = {
   field: SiteFieldsEnum;
 };
 
-
 export type SiteGroupConnectionMinArgs = {
   field: SiteFieldsEnum;
 };
 
-
 export type SiteGroupConnectionSumArgs = {
   field: SiteFieldsEnum;
 };
-
 
 export type SiteGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -2535,26 +2433,21 @@ export type SiteFunctionConnection = {
   group: Array<SiteFunctionGroupConnection>;
 };
 
-
 export type SiteFunctionConnectionDistinctArgs = {
   field: SiteFunctionFieldsEnum;
 };
-
 
 export type SiteFunctionConnectionMaxArgs = {
   field: SiteFunctionFieldsEnum;
 };
 
-
 export type SiteFunctionConnectionMinArgs = {
   field: SiteFunctionFieldsEnum;
 };
 
-
 export type SiteFunctionConnectionSumArgs = {
   field: SiteFunctionFieldsEnum;
 };
-
 
 export type SiteFunctionConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -2684,26 +2577,21 @@ export type SiteFunctionGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-
 export type SiteFunctionGroupConnectionDistinctArgs = {
   field: SiteFunctionFieldsEnum;
 };
-
 
 export type SiteFunctionGroupConnectionMaxArgs = {
   field: SiteFunctionFieldsEnum;
 };
 
-
 export type SiteFunctionGroupConnectionMinArgs = {
   field: SiteFunctionFieldsEnum;
 };
 
-
 export type SiteFunctionGroupConnectionSumArgs = {
   field: SiteFunctionFieldsEnum;
 };
-
 
 export type SiteFunctionGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -2767,26 +2655,21 @@ export type SitePageConnection = {
   group: Array<SitePageGroupConnection>;
 };
 
-
 export type SitePageConnectionDistinctArgs = {
   field: SitePageFieldsEnum;
 };
-
 
 export type SitePageConnectionMaxArgs = {
   field: SitePageFieldsEnum;
 };
 
-
 export type SitePageConnectionMinArgs = {
   field: SitePageFieldsEnum;
 };
 
-
 export type SitePageConnectionSumArgs = {
   field: SitePageFieldsEnum;
 };
-
 
 export type SitePageConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -2965,26 +2848,21 @@ export type SitePageGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-
 export type SitePageGroupConnectionDistinctArgs = {
   field: SitePageFieldsEnum;
 };
-
 
 export type SitePageGroupConnectionMaxArgs = {
   field: SitePageFieldsEnum;
 };
 
-
 export type SitePageGroupConnectionMinArgs = {
   field: SitePageFieldsEnum;
 };
 
-
 export type SitePageGroupConnectionSumArgs = {
   field: SitePageFieldsEnum;
 };
-
 
 export type SitePageGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -3023,26 +2901,21 @@ export type SitePluginConnection = {
   group: Array<SitePluginGroupConnection>;
 };
 
-
 export type SitePluginConnectionDistinctArgs = {
   field: SitePluginFieldsEnum;
 };
-
 
 export type SitePluginConnectionMaxArgs = {
   field: SitePluginFieldsEnum;
 };
 
-
 export type SitePluginConnectionMinArgs = {
   field: SitePluginFieldsEnum;
 };
 
-
 export type SitePluginConnectionSumArgs = {
   field: SitePluginFieldsEnum;
 };
-
 
 export type SitePluginConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -3174,26 +3047,21 @@ export type SitePluginGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-
 export type SitePluginGroupConnectionDistinctArgs = {
   field: SitePluginFieldsEnum;
 };
-
 
 export type SitePluginGroupConnectionMaxArgs = {
   field: SitePluginFieldsEnum;
 };
 
-
 export type SitePluginGroupConnectionMinArgs = {
   field: SitePluginFieldsEnum;
 };
 
-
 export type SitePluginGroupConnectionSumArgs = {
   field: SitePluginFieldsEnum;
 };
-
 
 export type SitePluginGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -3218,26 +3086,21 @@ export type SiteBuildMetadataConnection = {
   group: Array<SiteBuildMetadataGroupConnection>;
 };
 
-
 export type SiteBuildMetadataConnectionDistinctArgs = {
   field: SiteBuildMetadataFieldsEnum;
 };
-
 
 export type SiteBuildMetadataConnectionMaxArgs = {
   field: SiteBuildMetadataFieldsEnum;
 };
 
-
 export type SiteBuildMetadataConnectionMinArgs = {
   field: SiteBuildMetadataFieldsEnum;
 };
 
-
 export type SiteBuildMetadataConnectionSumArgs = {
   field: SiteBuildMetadataFieldsEnum;
 };
-
 
 export type SiteBuildMetadataConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -3361,26 +3224,21 @@ export type SiteBuildMetadataGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-
 export type SiteBuildMetadataGroupConnectionDistinctArgs = {
   field: SiteBuildMetadataFieldsEnum;
 };
-
 
 export type SiteBuildMetadataGroupConnectionMaxArgs = {
   field: SiteBuildMetadataFieldsEnum;
 };
 
-
 export type SiteBuildMetadataGroupConnectionMinArgs = {
   field: SiteBuildMetadataFieldsEnum;
 };
 
-
 export type SiteBuildMetadataGroupConnectionSumArgs = {
   field: SiteBuildMetadataFieldsEnum;
 };
-
 
 export type SiteBuildMetadataGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -3413,26 +3271,21 @@ export type ImageSharpConnection = {
   group: Array<ImageSharpGroupConnection>;
 };
 
-
 export type ImageSharpConnectionDistinctArgs = {
   field: ImageSharpFieldsEnum;
 };
-
 
 export type ImageSharpConnectionMaxArgs = {
   field: ImageSharpFieldsEnum;
 };
 
-
 export type ImageSharpConnectionMinArgs = {
   field: ImageSharpFieldsEnum;
 };
 
-
 export type ImageSharpConnectionSumArgs = {
   field: ImageSharpFieldsEnum;
 };
-
 
 export type ImageSharpConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -3587,26 +3440,21 @@ export type ImageSharpGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-
 export type ImageSharpGroupConnectionDistinctArgs = {
   field: ImageSharpFieldsEnum;
 };
-
 
 export type ImageSharpGroupConnectionMaxArgs = {
   field: ImageSharpFieldsEnum;
 };
 
-
 export type ImageSharpGroupConnectionMinArgs = {
   field: ImageSharpFieldsEnum;
 };
 
-
 export type ImageSharpGroupConnectionSumArgs = {
   field: ImageSharpFieldsEnum;
 };
-
 
 export type ImageSharpGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -3631,26 +3479,21 @@ export type ContentfulEntryConnection = {
   group: Array<ContentfulEntryGroupConnection>;
 };
 
-
 export type ContentfulEntryConnectionDistinctArgs = {
   field: ContentfulEntryFieldsEnum;
 };
-
 
 export type ContentfulEntryConnectionMaxArgs = {
   field: ContentfulEntryFieldsEnum;
 };
 
-
 export type ContentfulEntryConnectionMinArgs = {
   field: ContentfulEntryFieldsEnum;
 };
 
-
 export type ContentfulEntryConnectionSumArgs = {
   field: ContentfulEntryFieldsEnum;
 };
-
 
 export type ContentfulEntryConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -3775,26 +3618,21 @@ export type ContentfulEntryGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-
 export type ContentfulEntryGroupConnectionDistinctArgs = {
   field: ContentfulEntryFieldsEnum;
 };
-
 
 export type ContentfulEntryGroupConnectionMaxArgs = {
   field: ContentfulEntryFieldsEnum;
 };
 
-
 export type ContentfulEntryGroupConnectionMinArgs = {
   field: ContentfulEntryFieldsEnum;
 };
 
-
 export type ContentfulEntryGroupConnectionSumArgs = {
   field: ContentfulEntryFieldsEnum;
 };
-
 
 export type ContentfulEntryGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -3856,26 +3694,21 @@ export type ContentfulAssetConnection = {
   group: Array<ContentfulAssetGroupConnection>;
 };
 
-
 export type ContentfulAssetConnectionDistinctArgs = {
   field: ContentfulAssetFieldsEnum;
 };
-
 
 export type ContentfulAssetConnectionMaxArgs = {
   field: ContentfulAssetFieldsEnum;
 };
 
-
 export type ContentfulAssetConnectionMinArgs = {
   field: ContentfulAssetFieldsEnum;
 };
 
-
 export type ContentfulAssetConnectionSumArgs = {
   field: ContentfulAssetFieldsEnum;
 };
-
 
 export type ContentfulAssetConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -4027,26 +3860,21 @@ export type ContentfulAssetGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-
 export type ContentfulAssetGroupConnectionDistinctArgs = {
   field: ContentfulAssetFieldsEnum;
 };
-
 
 export type ContentfulAssetGroupConnectionMaxArgs = {
   field: ContentfulAssetFieldsEnum;
 };
 
-
 export type ContentfulAssetGroupConnectionMinArgs = {
   field: ContentfulAssetFieldsEnum;
 };
 
-
 export type ContentfulAssetGroupConnectionSumArgs = {
   field: ContentfulAssetFieldsEnum;
 };
-
 
 export type ContentfulAssetGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -4124,26 +3952,21 @@ export type ContentfulPageConnection = {
   group: Array<ContentfulPageGroupConnection>;
 };
 
-
 export type ContentfulPageConnectionDistinctArgs = {
   field: ContentfulPageFieldsEnum;
 };
-
 
 export type ContentfulPageConnectionMaxArgs = {
   field: ContentfulPageFieldsEnum;
 };
 
-
 export type ContentfulPageConnectionMinArgs = {
   field: ContentfulPageFieldsEnum;
 };
 
-
 export type ContentfulPageConnectionSumArgs = {
   field: ContentfulPageFieldsEnum;
 };
-
 
 export type ContentfulPageConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -4321,26 +4144,21 @@ export type ContentfulPageGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-
 export type ContentfulPageGroupConnectionDistinctArgs = {
   field: ContentfulPageFieldsEnum;
 };
-
 
 export type ContentfulPageGroupConnectionMaxArgs = {
   field: ContentfulPageFieldsEnum;
 };
 
-
 export type ContentfulPageGroupConnectionMinArgs = {
   field: ContentfulPageFieldsEnum;
 };
 
-
 export type ContentfulPageGroupConnectionSumArgs = {
   field: ContentfulPageFieldsEnum;
 };
-
 
 export type ContentfulPageGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -4402,26 +4220,21 @@ export type ContentfulCardConnection = {
   group: Array<ContentfulCardGroupConnection>;
 };
 
-
 export type ContentfulCardConnectionDistinctArgs = {
   field: ContentfulCardFieldsEnum;
 };
-
 
 export type ContentfulCardConnectionMaxArgs = {
   field: ContentfulCardFieldsEnum;
 };
 
-
 export type ContentfulCardConnectionMinArgs = {
   field: ContentfulCardFieldsEnum;
 };
 
-
 export type ContentfulCardConnectionSumArgs = {
   field: ContentfulCardFieldsEnum;
 };
-
 
 export type ContentfulCardConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -4598,26 +4411,21 @@ export type ContentfulCardGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-
 export type ContentfulCardGroupConnectionDistinctArgs = {
   field: ContentfulCardFieldsEnum;
 };
-
 
 export type ContentfulCardGroupConnectionMaxArgs = {
   field: ContentfulCardFieldsEnum;
 };
 
-
 export type ContentfulCardGroupConnectionMinArgs = {
   field: ContentfulCardFieldsEnum;
 };
 
-
 export type ContentfulCardGroupConnectionSumArgs = {
   field: ContentfulCardFieldsEnum;
 };
-
 
 export type ContentfulCardGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -4677,26 +4485,21 @@ export type ContentfulWelcomeConnection = {
   group: Array<ContentfulWelcomeGroupConnection>;
 };
 
-
 export type ContentfulWelcomeConnectionDistinctArgs = {
   field: ContentfulWelcomeFieldsEnum;
 };
-
 
 export type ContentfulWelcomeConnectionMaxArgs = {
   field: ContentfulWelcomeFieldsEnum;
 };
 
-
 export type ContentfulWelcomeConnectionMinArgs = {
   field: ContentfulWelcomeFieldsEnum;
 };
 
-
 export type ContentfulWelcomeConnectionSumArgs = {
   field: ContentfulWelcomeFieldsEnum;
 };
-
 
 export type ContentfulWelcomeConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -4899,26 +4702,21 @@ export type ContentfulWelcomeGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-
 export type ContentfulWelcomeGroupConnectionDistinctArgs = {
   field: ContentfulWelcomeFieldsEnum;
 };
-
 
 export type ContentfulWelcomeGroupConnectionMaxArgs = {
   field: ContentfulWelcomeFieldsEnum;
 };
 
-
 export type ContentfulWelcomeGroupConnectionMinArgs = {
   field: ContentfulWelcomeFieldsEnum;
 };
 
-
 export type ContentfulWelcomeGroupConnectionSumArgs = {
   field: ContentfulWelcomeFieldsEnum;
 };
-
 
 export type ContentfulWelcomeGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -4959,26 +4757,21 @@ export type ContentfulAuthorConnection = {
   group: Array<ContentfulAuthorGroupConnection>;
 };
 
-
 export type ContentfulAuthorConnectionDistinctArgs = {
   field: ContentfulAuthorFieldsEnum;
 };
-
 
 export type ContentfulAuthorConnectionMaxArgs = {
   field: ContentfulAuthorFieldsEnum;
 };
 
-
 export type ContentfulAuthorConnectionMinArgs = {
   field: ContentfulAuthorFieldsEnum;
 };
 
-
 export type ContentfulAuthorConnectionSumArgs = {
   field: ContentfulAuthorFieldsEnum;
 };
-
 
 export type ContentfulAuthorConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -5103,26 +4896,21 @@ export type ContentfulAuthorGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-
 export type ContentfulAuthorGroupConnectionDistinctArgs = {
   field: ContentfulAuthorFieldsEnum;
 };
-
 
 export type ContentfulAuthorGroupConnectionMaxArgs = {
   field: ContentfulAuthorFieldsEnum;
 };
 
-
 export type ContentfulAuthorGroupConnectionMinArgs = {
   field: ContentfulAuthorFieldsEnum;
 };
 
-
 export type ContentfulAuthorGroupConnectionSumArgs = {
   field: ContentfulAuthorFieldsEnum;
 };
-
 
 export type ContentfulAuthorGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -5156,26 +4944,21 @@ export type ContentfulPostConnection = {
   group: Array<ContentfulPostGroupConnection>;
 };
 
-
 export type ContentfulPostConnectionDistinctArgs = {
   field: ContentfulPostFieldsEnum;
 };
-
 
 export type ContentfulPostConnectionMaxArgs = {
   field: ContentfulPostFieldsEnum;
 };
 
-
 export type ContentfulPostConnectionMinArgs = {
   field: ContentfulPostFieldsEnum;
 };
 
-
 export type ContentfulPostConnectionSumArgs = {
   field: ContentfulPostFieldsEnum;
 };
-
 
 export type ContentfulPostConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -5300,26 +5083,21 @@ export type ContentfulPostGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-
 export type ContentfulPostGroupConnectionDistinctArgs = {
   field: ContentfulPostFieldsEnum;
 };
-
 
 export type ContentfulPostGroupConnectionMaxArgs = {
   field: ContentfulPostFieldsEnum;
 };
 
-
 export type ContentfulPostGroupConnectionMinArgs = {
   field: ContentfulPostFieldsEnum;
 };
 
-
 export type ContentfulPostGroupConnectionSumArgs = {
   field: ContentfulPostFieldsEnum;
 };
-
 
 export type ContentfulPostGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -5357,26 +5135,21 @@ export type ContentfulContentTypeConnection = {
   group: Array<ContentfulContentTypeGroupConnection>;
 };
 
-
 export type ContentfulContentTypeConnectionDistinctArgs = {
   field: ContentfulContentTypeFieldsEnum;
 };
-
 
 export type ContentfulContentTypeConnectionMaxArgs = {
   field: ContentfulContentTypeFieldsEnum;
 };
 
-
 export type ContentfulContentTypeConnectionMinArgs = {
   field: ContentfulContentTypeFieldsEnum;
 };
 
-
 export type ContentfulContentTypeConnectionSumArgs = {
   field: ContentfulContentTypeFieldsEnum;
 };
-
 
 export type ContentfulContentTypeConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -5503,26 +5276,21 @@ export type ContentfulContentTypeGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-
 export type ContentfulContentTypeGroupConnectionDistinctArgs = {
   field: ContentfulContentTypeFieldsEnum;
 };
-
 
 export type ContentfulContentTypeGroupConnectionMaxArgs = {
   field: ContentfulContentTypeFieldsEnum;
 };
 
-
 export type ContentfulContentTypeGroupConnectionMinArgs = {
   field: ContentfulContentTypeFieldsEnum;
 };
 
-
 export type ContentfulContentTypeGroupConnectionSumArgs = {
   field: ContentfulContentTypeFieldsEnum;
 };
-
 
 export type ContentfulContentTypeGroupConnectionGroupArgs = {
   skip?: InputMaybe<Scalars['Int']>;
@@ -5546,55 +5314,184 @@ export type ContentfulContentTypeSortInput = {
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
-export type QueryForAssetQueryVariables = Exact<{ [key: string]: never; }>;
+export type QueryForAssetQueryVariables = Exact<{ [key: string]: never }>;
 
+export type QueryForAssetQuery = {
+  allContentfulAsset: {
+    nodes: Array<{
+      contentful_id: string;
+      description?: string | null;
+      gatsbyImage?: any | null;
+    }>;
+  };
+};
 
-export type QueryForAssetQuery = { allContentfulAsset: { nodes: Array<{ contentful_id: string, description?: string | null, gatsbyImage?: any | null }> } };
+export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never }>;
 
-export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+export type Unnamed_1_Query = {
+  site?: { siteMetadata?: { mapboxToken?: string | null } | null } | null;
+};
 
+export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never }>;
 
-export type Unnamed_1_Query = { site?: { siteMetadata?: { mapboxToken?: string | null } | null } | null };
+export type Unnamed_2_Query = {
+  site?: {
+    siteMetadata?: {
+      title?: string | null;
+      description?: string | null;
+      author?: string | null;
+    } | null;
+  } | null;
+};
 
-export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
+export type HomeQueryQueryVariables = Exact<{ [key: string]: never }>;
 
-
-export type Unnamed_2_Query = { site?: { siteMetadata?: { title?: string | null, description?: string | null, author?: string | null } | null } | null };
-
-export type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type HomeQueryQuery = { contentfulWelcome?: { header?: string | null, body?: { raw?: string | null } | null, welcomePic?: { contentful_id: string, description?: string | null, gatsbyImage?: any | null } | null } | null, allContentfulCard: { nodes: Array<{ entryUnused?: string | null, body?: { raw?: string | null, references?: Array<{ __typename: 'ContentfulAsset', contentful_id: string } | null> | null } | null }> } };
+export type HomeQueryQuery = {
+  contentfulWelcome?: {
+    header?: string | null;
+    body?: { raw?: string | null } | null;
+    welcomePic?: {
+      contentful_id: string;
+      description?: string | null;
+      gatsbyImage?: any | null;
+    } | null;
+  } | null;
+  allContentfulCard: {
+    nodes: Array<{
+      entryUnused?: string | null;
+      body?: {
+        raw?: string | null;
+        references?: Array<{
+          __typename: 'ContentfulAsset';
+          contentful_id: string;
+        } | null> | null;
+      } | null;
+    }>;
+  };
+};
 
 export type PageBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
 
+export type PageBySlugQuery = {
+  contentfulPage?: {
+    header?: string | null;
+    content?: {
+      raw?: string | null;
+      references?: Array<{
+        __typename: 'ContentfulAsset';
+        contentful_id: string;
+      } | null> | null;
+    } | null;
+  } | null;
+};
 
-export type PageBySlugQuery = { contentfulPage?: { header?: string | null, content?: { raw?: string | null, references?: Array<{ __typename: 'ContentfulAsset', contentful_id: string } | null> | null } | null } | null };
+export type GatsbyImageSharpFixedFragment = {
+  base64?: string | null;
+  width: number;
+  height: number;
+  src: string;
+  srcSet: string;
+};
 
-export type GatsbyImageSharpFixedFragment = { base64?: string | null, width: number, height: number, src: string, srcSet: string };
+export type GatsbyImageSharpFixed_TracedSvgFragment = {
+  tracedSVG?: string | null;
+  width: number;
+  height: number;
+  src: string;
+  srcSet: string;
+};
 
-export type GatsbyImageSharpFixed_TracedSvgFragment = { tracedSVG?: string | null, width: number, height: number, src: string, srcSet: string };
+export type GatsbyImageSharpFixed_WithWebpFragment = {
+  base64?: string | null;
+  width: number;
+  height: number;
+  src: string;
+  srcSet: string;
+  srcWebp?: string | null;
+  srcSetWebp?: string | null;
+};
 
-export type GatsbyImageSharpFixed_WithWebpFragment = { base64?: string | null, width: number, height: number, src: string, srcSet: string, srcWebp?: string | null, srcSetWebp?: string | null };
+export type GatsbyImageSharpFixed_WithWebp_TracedSvgFragment = {
+  tracedSVG?: string | null;
+  width: number;
+  height: number;
+  src: string;
+  srcSet: string;
+  srcWebp?: string | null;
+  srcSetWebp?: string | null;
+};
 
-export type GatsbyImageSharpFixed_WithWebp_TracedSvgFragment = { tracedSVG?: string | null, width: number, height: number, src: string, srcSet: string, srcWebp?: string | null, srcSetWebp?: string | null };
+export type GatsbyImageSharpFixed_NoBase64Fragment = {
+  width: number;
+  height: number;
+  src: string;
+  srcSet: string;
+};
 
-export type GatsbyImageSharpFixed_NoBase64Fragment = { width: number, height: number, src: string, srcSet: string };
+export type GatsbyImageSharpFixed_WithWebp_NoBase64Fragment = {
+  width: number;
+  height: number;
+  src: string;
+  srcSet: string;
+  srcWebp?: string | null;
+  srcSetWebp?: string | null;
+};
 
-export type GatsbyImageSharpFixed_WithWebp_NoBase64Fragment = { width: number, height: number, src: string, srcSet: string, srcWebp?: string | null, srcSetWebp?: string | null };
+export type GatsbyImageSharpFluidFragment = {
+  base64?: string | null;
+  aspectRatio: number;
+  src: string;
+  srcSet: string;
+  sizes: string;
+};
 
-export type GatsbyImageSharpFluidFragment = { base64?: string | null, aspectRatio: number, src: string, srcSet: string, sizes: string };
+export type GatsbyImageSharpFluidLimitPresentationSizeFragment = {
+  maxHeight: number;
+  maxWidth: number;
+};
 
-export type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: number, maxWidth: number };
+export type GatsbyImageSharpFluid_TracedSvgFragment = {
+  tracedSVG?: string | null;
+  aspectRatio: number;
+  src: string;
+  srcSet: string;
+  sizes: string;
+};
 
-export type GatsbyImageSharpFluid_TracedSvgFragment = { tracedSVG?: string | null, aspectRatio: number, src: string, srcSet: string, sizes: string };
+export type GatsbyImageSharpFluid_WithWebpFragment = {
+  base64?: string | null;
+  aspectRatio: number;
+  src: string;
+  srcSet: string;
+  srcWebp?: string | null;
+  srcSetWebp?: string | null;
+  sizes: string;
+};
 
-export type GatsbyImageSharpFluid_WithWebpFragment = { base64?: string | null, aspectRatio: number, src: string, srcSet: string, srcWebp?: string | null, srcSetWebp?: string | null, sizes: string };
+export type GatsbyImageSharpFluid_WithWebp_TracedSvgFragment = {
+  tracedSVG?: string | null;
+  aspectRatio: number;
+  src: string;
+  srcSet: string;
+  srcWebp?: string | null;
+  srcSetWebp?: string | null;
+  sizes: string;
+};
 
-export type GatsbyImageSharpFluid_WithWebp_TracedSvgFragment = { tracedSVG?: string | null, aspectRatio: number, src: string, srcSet: string, srcWebp?: string | null, srcSetWebp?: string | null, sizes: string };
+export type GatsbyImageSharpFluid_NoBase64Fragment = {
+  aspectRatio: number;
+  src: string;
+  srcSet: string;
+  sizes: string;
+};
 
-export type GatsbyImageSharpFluid_NoBase64Fragment = { aspectRatio: number, src: string, srcSet: string, sizes: string };
-
-export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = { aspectRatio: number, src: string, srcSet: string, srcWebp?: string | null, srcSetWebp?: string | null, sizes: string };
+export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = {
+  aspectRatio: number;
+  src: string;
+  srcSet: string;
+  srcWebp?: string | null;
+  srcSetWebp?: string | null;
+  sizes: string;
+};

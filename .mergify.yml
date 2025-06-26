@@ -4,6 +4,7 @@ pull_request_rules:
     conditions:
       - author=dsm23
       - check-success=dependency-review
+      - check-success=format
       - check-success=gitleaks
     actions:
       review:
@@ -13,6 +14,7 @@ pull_request_rules:
     conditions:
       - author=renovate[bot]
       - check-success=dependency-review
+      - check-success=format
       - check-success=gitleaks
     actions:
       review:
@@ -22,6 +24,7 @@ pull_request_rules:
   - name: Automatically merge when GitHub Actions jobs succeed
     conditions:
       - check-success=dependency-review
+      - check-success=format
       - check-success=gitleaks
       - "#approved-reviews-by>=1"
     actions:

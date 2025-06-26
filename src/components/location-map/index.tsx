@@ -33,17 +33,15 @@ const Map = () => {
     zoom: 14,
   });
 
-  const { site } = useStaticQuery<Query>(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            mapboxToken
-          }
+  const { site } = useStaticQuery<Query>(graphql`
+    query {
+      site {
+        siteMetadata {
+          mapboxToken
         }
       }
-    `,
-  );
+    }
+  `);
 
   const mapboxToken = site?.siteMetadata?.mapboxToken as string;
 

@@ -2,7 +2,7 @@ import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
 import '@fontsource/inter/600.css';
 import '@fontsource/inter/700.css';
-import './src/styles.css'
+import './src/styles.css';
 
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(
