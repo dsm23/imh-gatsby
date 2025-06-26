@@ -1,25 +1,13 @@
-import React, {
-  ElementType,
-  FunctionComponent,
-  useEffect,
-  useRef,
-} from "react";
+import React, { FunctionComponent, useRef } from "react";
+import cx from "clsx";
 import { Link, GatsbyLinkProps } from "gatsby";
 // import { useKey } from 'react-use';
-import tw, { styled } from "twin.macro";
 
 interface StyleProps {
-  $isActive?: boolean;
-  as?: ElementType | keyof JSX.IntrinsicAttributes;
+  isActive?: boolean;
 }
 
 type Props = GatsbyLinkProps<{}> & StyleProps;
-
-const StyledAnchor = styled.a<StyleProps>(({ $isActive }) => [
-  tw`block text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:(outline-none bg-gray-100) transition duration-150 ease-in-out`,
-  $isActive &&
-    tw`text-white bg-indigo-700 hover:bg-indigo-500 focus:(outline-none bg-indigo-600)`,
-]);
 
 const handleKeyDown = (node: HTMLAnchorElement) => (event: KeyboardEvent) => {
   if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key)) {
@@ -44,16 +32,31 @@ const handleKeyDown = (node: HTMLAnchorElement) => (event: KeyboardEvent) => {
   }
 };
 
-const DropdownItem: FunctionComponent<Props> = (props) => {
+const DropdownItem: FunctionComponent<Props> = ({
+  children,
+  className,
+  isActive,
+  ...props
+}) => {
   const refLink = useRef<HTMLAnchorElement>(null);
 
   return (
-    <StyledAnchor
-      as={Link}
+    <Link
+      {...props}
+      className={cx(
+        "block text-sm leading-5 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out",
+        {
+          "text-gray-700": !isActive,
+          "text-white bg-indigo-700 hover:bg-indigo-500 focus:bg-indigo-600":
+            isActive,
+        },
+        className,
+      )}
       ref={refLink}
       onKeyDown={handleKeyDown(refLink?.current as HTMLAnchorElement)}
-      {...props}
-    />
+    >
+      {children}
+    </Link>
   );
 };
 

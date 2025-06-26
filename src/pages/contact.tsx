@@ -2,7 +2,6 @@ import React, { FunctionComponent } from "react";
 import { PageRendererProps } from "gatsby";
 
 import Anchor from "../components/anchor";
-import FlexItem from "../components/flex-item";
 import Layout from "../components/layout";
 import Map from "../components/location-map";
 import SEO from "../components/seo";
@@ -15,9 +14,9 @@ const Contact: FunctionComponent<PageRendererProps> = ({ location }) => (
       description="Contact page for IMH. UK distributor for power quality devices. Powerside and Dranetz"
       title="Contact"
     />
-    <h1 tw="text-black text-4xl">Contact Us</h1>
-    <div tw="md:flex justify-between w-full relative">
-      <FlexItem as="address" tw="text-gray-900" basis="25%">
+    <h1 className="text-black text-4xl">Contact Us</h1>
+    <div className="md:flex justify-between w-full relative">
+      <address className="text-gray-900 flex-basis-[25%]">
         <p>Off Millhead Way</p>
         <p>8 Roach View</p>
         <p>Purdeys Industrial Estate</p>
@@ -29,7 +28,7 @@ const Contact: FunctionComponent<PageRendererProps> = ({ location }) => (
         <p>
           Telephone: <Anchor href="tel:+441702545429">01702 545429</Anchor>
         </p>
-      </FlexItem>
+      </address>
       <Map />
     </div>
   </Layout>

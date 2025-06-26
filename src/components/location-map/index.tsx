@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useStaticQuery, graphql } from "gatsby";
+// import { useStaticQuery, graphql } from "gatsby";
 import ReactMapGL, {
   NavigationControl,
   FullscreenControl,
@@ -12,8 +12,6 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import Pin from "../svgs/pin";
 
 import { Query } from "../../../graphql-types";
-
-import FlexItem from "../flex-item";
 
 import {
   FullscreenControlStyles,
@@ -33,27 +31,28 @@ const Map = () => {
     zoom: 14,
   });
 
-  const { site } = useStaticQuery<Query>(graphql`
-    query {
-      site {
-        siteMetadata {
-          mapboxToken
-        }
-      }
-    }
-  `);
+  // const { site } = useStaticQuery<Query>(graphql`
+  //   query {
+  //     site {
+  //       siteMetadata {
+  //         mapboxToken
+  //       }
+  //     }
+  //   }
+  // `);
 
-  const mapboxToken = site?.siteMetadata?.mapboxToken as string;
+  // const mapboxToken = site?.siteMetadata?.mapboxToken as string;
 
-  if (!mapboxToken) {
-    console.error(
-      "ERROR: Mapbox token is required in gatsby-config.js siteMetadata",
-    );
-  }
+  // if (!mapboxToken) {
+  //   console.error(
+  //     "ERROR: Mapbox token is required in gatsby-config.js siteMetadata",
+  //   );
+  // }
 
   return (
-    <FlexItem basis="75%" tw="w-full shadow-lg">
-      <ReactMapGL
+    <div className="w-full shadow-lg flex-basis-[75%]">
+      map
+      {/* <ReactMapGL
         {...viewport}
         width="100%"
         height={400}
@@ -78,8 +77,8 @@ const Map = () => {
         <ScaleControlStyles>
           <ScaleControl />
         </ScaleControlStyles>
-      </ReactMapGL>
-    </FlexItem>
+      </ReactMapGL> */}
+    </div>
   );
 };
 

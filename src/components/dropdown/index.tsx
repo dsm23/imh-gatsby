@@ -1,15 +1,27 @@
 import React, { FunctionComponent, HTMLAttributes } from "react";
-import tw, { styled } from "twin.macro";
+import cx from "clsx";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   isOpen: boolean;
   isAnimating: boolean;
 }
 
-const DropdownContainer = styled.div<{ $isOpen: boolean }>(({ $isOpen }) => [
-  tw`origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg transform transition ease-out duration-200 opacity-0 scale-95`,
-  $isOpen && tw`opacity-100 scale-100 ease-in duration-75`,
-]);
+const DropdownContainer: FunctionComponent<
+  HTMLAttributes<HTMLDivElement> & { isOpen: boolean }
+> = ({ children, className, isOpen, ...props }) => (
+  <div
+    {...props}
+    className={cx(
+      "origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg transform transition ease-out duration-200 opacity-0 scale-95",
+      {
+        "opacity-100 scale-100 ease-in duration-75": isOpen,
+      },
+      className,
+    )}
+  >
+    {children}
+  </div>
+);
 
 /* <!--
               Profile dropdown panel, show/hide based on dropdown state.
@@ -33,12 +45,12 @@ const Dropdown: FunctionComponent<Props> = ({
     <DropdownContainer
       {...props}
       // TODO: fix this specificity prod bug
-      tw="w-full"
-      $isOpen={isOpen || isAnimating}
+      className="w-full"
+      isOpen={isOpen || isAnimating}
       onTransitionEnd={onTransitionEnd}
     >
       <div
-        tw="py-1 rounded-md bg-white ring-1 ring-black ring-opacity-5"
+        className="py-1 rounded-md bg-white ring-1 ring-black ring-opacity-5"
         role="menu"
         aria-orientation="vertical"
       >
