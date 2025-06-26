@@ -18,9 +18,9 @@
     "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
   },
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "^14.1.2",
-    "@contentful/rich-text-types": "^14.1.2",
-    "@fontsource/inter": "^4.1.0",
+    "@contentful/rich-text-react-renderer": "^16.0.2",
+    "@contentful/rich-text-types": "^17.0.1",
+    "@fontsource/inter": "^5.2.6",
     "@tailwindcss/postcss": "4.1.11",
     "clsx": "2.1.1",
     "gatsby": "^4.16.0",
@@ -43,12 +43,12 @@
     "gatsby-transformer-sharp": "^4.16.0",
     "lottie-web": "^5.7.6",
     "postcss": "^8.2.4",
-    "react": "^17.0.1",
+    "react": "^19.1.0",
     "react-cookie-consent": "^6.2.2",
-    "react-dom": "^17.0.1",
+    "react-dom": "^19.1.0",
     "react-helmet": "^6.1.0",
     "react-map-gl": "^6.1.1",
-    "react-use": "^15.3.8",
+    "react-use": "^17.6.0",
     "tailwindcss": "4.1.11"
   },
   "devDependencies": {
