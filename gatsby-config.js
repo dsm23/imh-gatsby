@@ -33,7 +33,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-graphql-codegen`,
     `gatsby-plugin-image`,
-    `gatsby-plugin-netlify`,
     `gatsby-plugin-pnpm`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
