@@ -1,10 +1,14 @@
 import React, { FunctionComponent, SVGAttributes } from "react";
-import { theme } from "twin.macro";
+import cx from "clsx";
 
-const Cross: FunctionComponent<SVGAttributes<SVGSVGElement>> = (props) => (
+const Cross: FunctionComponent<SVGAttributes<SVGSVGElement>> = ({
+  className,
+  ...props
+}) => (
   <svg
     {...props}
-    fill={`${theme`colors.gray.100`}`}
+    className={cx("color-gray-100", className)}
+    fill="currentColor"
     viewBox="0 0 24 24"
     stroke="currentColor"
   >

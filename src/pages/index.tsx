@@ -5,8 +5,6 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 
-import "twin.macro";
-
 import CardGroup from "../components/card";
 import Divisor from "../components/divisor";
 import Image from "../components/image";
@@ -21,7 +19,7 @@ interface Props extends PageRendererProps {
 
 const ListItem: FunctionComponent = ({ children }) => (
   <>
-    {/* <div tw="mt-4 border-t bg-blue-500 w-full" /> */}
+    {/* <div className="mt-4 border-t bg-blue-500 w-full" /> */}
     <li className="list-group-item">{children}</li>
   </>
 );
@@ -29,7 +27,7 @@ const ListItem: FunctionComponent = ({ children }) => (
 const options: Options = {
   renderMark: {
     [MARKS.BOLD]: (text) => (
-      <span tw="text-2xl font-bold text-blue-700">{text}</span>
+      <span className="text-2xl font-bold text-blue-700">{text}</span>
     ),
   },
   renderNode: {
@@ -37,13 +35,13 @@ const options: Options = {
       return <ListItem>{children}</ListItem>;
     },
     [BLOCKS.PARAGRAPH]: (_, children) => {
-      return <p tw="mt-4">{children}</p>;
+      return <p className="mt-4">{children}</p>;
     },
     [BLOCKS.HEADING_4]: (_, children) => {
-      return <h4 tw="text-2xl font-bold">{children}</h4>;
+      return <h4 className="text-2xl font-bold">{children}</h4>;
     },
     [BLOCKS.UL_LIST]: (_, children) => {
-      return <ul tw="ml-5 list-disc">{children}</ul>;
+      return <ul className="ml-5 list-disc">{children}</ul>;
     },
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
       return <Image contentfulId={node?.data?.target?.contentful_id} />;
@@ -55,7 +53,7 @@ const options: Options = {
 const welcomeOptions: Options = {
   renderNode: {
     [BLOCKS.PARAGRAPH]: (_, children) => {
-      return <p tw="text-gray-900 mt-4">{children}</p>;
+      return <p className="text-gray-900 mt-4">{children}</p>;
     },
   },
 };
@@ -71,49 +69,51 @@ const Home: FunctionComponent<Props> = ({ data, location }) => {
         description="Home page for IMH. UK distributor for power quality devices. Powerside and Dranetz"
         title="Home"
       />
-      <section id="imh" tw="py-2 md:py-4 md:flex md:items-center">
-        <div tw="w-full md:w-1/2">
-          <h1 tw="text-4xl">{welcome?.header}</h1>
+      <section id="imh" className="py-2 md:py-4 md:flex md:items-center">
+        <div className="w-full md:w-1/2">
+          <h1 className="text-4xl">{welcome?.header}</h1>
           {/* @ts-ignore */}
           {renderRichText(welcome?.body, welcomeOptions)}
         </div>
 
         <GatsbyImage
-          tw="hidden md:(block w-1/2 m-5) rounded-lg shadow-lg"
+          className="hidden md:block md:w-1/2 md:m-5 rounded-lg shadow-lg"
           alt={welcome?.welcomePic?.description!}
           image={welcome?.welcomePic?.gatsbyImage}
         />
       </section>
       <Divisor />
-      <section id="powerside" tw="py-2 md:py-4 ">
-        <h1 tw="text-4xl">Partnered with Powerside</h1>
-        <div tw="md:(flex items-center)">
+      <section id="powerside" className="py-2 md:py-4 ">
+        <h1 className="text-4xl">Partnered with Powerside</h1>
+        <div className="md:flex md:items-center">
           <Image
-            tw="block w-full md:w-1/2"
+            className="block w-full md:w-1/2"
             contentfulId="7sKYayeWgbxL0d549lviAc"
           />
-          <div tw="w-full md:w-1/2">
-            <h2 tw="mt-4 text-3xl">PQUBE 3</h2>
-            <h3 tw="mt-4 text-xl">The World's best power quality recorder</h3>
-            <p tw="mt-3">
+          <div className="w-full md:w-1/2">
+            <h2 className="mt-4 text-3xl">PQUBE 3</h2>
+            <h3 className="mt-4 text-xl">
+              The World's best power quality recorder
+            </h3>
+            <p className="mt-3">
               Real-time analysis of voltage and current connections with daily,
               weekly and monthly trends
             </p>
-            <p tw="mt-3">
+            <p className="mt-3">
               remote monitoring via smartphone, tablet and desktop - on the web
               without additional software
             </p>
-            <p tw="mt-3">
+            <p className="mt-3">
               Detailed reports with self-selectable content, eg EN 50160
             </p>
-            <p tw="mt-3">
+            <p className="mt-3">
               Intuitive installation and operation of power analyzers
             </p>
           </div>
         </div>
       </section>
       <Divisor />
-      <section id="pqube" tw="py-2 md:py-4">
+      <section id="pqube" className="py-2 md:py-4">
         <h3>
           PQUBE3 ANALYSERS OFFER SECURITY OF SUPPLY AND SAVINGS POTENTIAL IN
           VARIOUS APPLICATIONS.
@@ -121,7 +121,7 @@ const Home: FunctionComponent<Props> = ({ data, location }) => {
         <CardGroup>
           {cards.map(({ body, entryUnused }) => (
             <div
-              tw="px-4 py-6 rounded overflow-hidden shadow-lg w-full sm:w-1/2 md:w-1/3"
+              className="px-4 py-6 rounded overflow-hidden shadow-lg w-full sm:w-1/2 md:w-1/3"
               key={entryUnused}
             >
               {/* @ts-ignore */}
@@ -131,9 +131,9 @@ const Home: FunctionComponent<Props> = ({ data, location }) => {
         </CardGroup>
       </section>
       <Divisor />
-      <section id="advice" tw="py-2 md:py-4">
-        <h3 tw="text-2xl">Great products deserve great backup</h3>
-        <p tw="text-gray-900">
+      <section id="advice" className="py-2 md:py-4">
+        <h3 className="text-2xl">Great products deserve great backup</h3>
+        <p className="text-gray-900">
           We offer advice, hardware and software configuration, measurement data
           evaluation, training and post-sales support that is second to none.
         </p>

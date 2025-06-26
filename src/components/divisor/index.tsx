@@ -9,8 +9,6 @@ import lottie, { AnimationItem, AnimationConfigWithData } from "lottie-web";
 import { useIntersection } from "react-use";
 import animationData from "../../animations/waveLine.json";
 
-import "twin.macro";
-
 type OptionsConfig = Omit<AnimationConfigWithData, "container">;
 
 const options: OptionsConfig = {
@@ -59,7 +57,7 @@ const Divisor: FunctionComponent<HTMLAttributes<HTMLDivElement>> = (props) => {
     return () => anim.destroy(); // optional clean up for unmounting
   }, [autoplay]);
 
-  return <div {...props} tw="h-32" ref={animationContainer} />;
+  return <div {...props} className="h-32" ref={animationContainer} />;
 };
 
 export default Divisor;

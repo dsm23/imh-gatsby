@@ -4,8 +4,6 @@ import { Options } from "@contentful/rich-text-react-renderer";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
 
-import "twin.macro";
-
 import Anchor from "../components/anchor";
 import Image from "../components/image";
 import Layout from "../components/layout";
@@ -17,7 +15,7 @@ interface Props extends PageRendererProps {
 }
 
 const Bold: FunctionComponent = ({ children }) => (
-  <span tw="text-gray-900 font-bold">{children}</span>
+  <span className="text-gray-900 font-bold">{children}</span>
 );
 
 const options: Options = {
@@ -26,19 +24,19 @@ const options: Options = {
   },
   renderNode: {
     [BLOCKS.HEADING_2]: (_, children) => (
-      <h2 tw="mt-4 font-medium text-2xl text-gray-900">{children}</h2>
+      <h2 className="mt-4 font-medium text-2xl text-gray-900">{children}</h2>
     ),
 
     [BLOCKS.PARAGRAPH]: (_, children) => (
-      <p tw="mt-2 text-gray-900">{children}</p>
+      <p className="mt-2 text-gray-900">{children}</p>
     ),
     [BLOCKS.UL_LIST]: (_, children) => (
-      <ul tw="my-2 list-disc list-outside">{children}</ul>
+      <ul className="my-2 list-disc list-outside">{children}</ul>
     ),
-    [BLOCKS.LIST_ITEM]: (_, children) => <li tw="ml-8">{children}</li>,
+    [BLOCKS.LIST_ITEM]: (_, children) => <li className="ml-8">{children}</li>,
     [BLOCKS.EMBEDDED_ASSET]: (node) => (
       <Image
-        tw="text-center shadow-lg mx-auto max-w-screen-md"
+        className="text-center shadow-lg mx-auto max-w-screen-md"
         contentfulId={node?.data?.target?.contentful_id}
       />
     ),
@@ -56,9 +54,9 @@ const PageTemplate: FunctionComponent<Props> = ({ data, location }) => {
   return (
     <Layout location={location}>
       <SEO description="Test" title={header} />
-      <h1 tw="text-4xl">{header}</h1>
+      <h1 className="text-4xl">{header}</h1>
       {/* @ts-ignore */}
-      <div tw="mb-4">{renderRichText(body, options)}</div>
+      <div className="mb-4">{renderRichText(body, options)}</div>
     </Layout>
   );
 };
