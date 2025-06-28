@@ -1,13 +1,14 @@
-import React, { FunctionComponent, useRef } from "react";
+import { useRef } from "react";
+import type { AnchorHTMLAttributes, FunctionComponent } from "react";
 import cx from "clsx";
-import { Link, GatsbyLinkProps } from "gatsby";
+// import { Link, GatsbyLinkProps } from "gatsby";
 // import { useKey } from 'react-use';
 
 interface StyleProps {
   isActive?: boolean;
 }
 
-type Props = GatsbyLinkProps<{}> & StyleProps;
+type Props = AnchorHTMLAttributes<HTMLAnchorElement> & StyleProps;
 
 const handleKeyDown = (node: HTMLAnchorElement) => (event: KeyboardEvent) => {
   if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key)) {
@@ -41,7 +42,7 @@ const DropdownItem: FunctionComponent<Props> = ({
   const refLink = useRef<HTMLAnchorElement>(null);
 
   return (
-    <Link
+    <a
       {...props}
       className={cx(
         "block text-sm leading-5 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 transition duration-150 ease-in-out",
@@ -56,7 +57,7 @@ const DropdownItem: FunctionComponent<Props> = ({
       onKeyDown={handleKeyDown(refLink?.current as HTMLAnchorElement)}
     >
       {children}
-    </Link>
+    </a>
   );
 };
 

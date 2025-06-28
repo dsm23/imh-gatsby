@@ -1,4 +1,4 @@
-import React, { FunctionComponent, SVGAttributes } from "react";
+import type { FunctionComponent, SVGAttributes } from "react";
 import cx from "clsx";
 
 const Caret: FunctionComponent<SVGAttributes<SVGSVGElement>> = ({

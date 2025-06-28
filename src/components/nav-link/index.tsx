@@ -1,10 +1,9 @@
-import React, { FunctionComponent } from "react";
+import type { AnchorHTMLAttributes, FunctionComponent } from "react";
 import cx from "clsx";
-import { GatsbyLinkProps, Link } from "gatsby";
 
-type Props = GatsbyLinkProps<{}> & {
+type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
   isActive?: boolean;
-  as: any;
+  as?: any;
 };
 
 const NavLink: FunctionComponent<Props> = ({

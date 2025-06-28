@@ -1,4 +1,4 @@
-import React, { FunctionComponent, HTMLAttributes } from "react";
+import type { FunctionComponent, HTMLAttributes } from "react";
 import cx from "clsx";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
