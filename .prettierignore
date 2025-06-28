@@ -1,4 +1,5 @@
 .cache
 package.json
 pnpm-lock.yaml
-public
+.astro
+.dist

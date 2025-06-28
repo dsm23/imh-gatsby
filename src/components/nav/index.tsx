@@ -1,7 +1,7 @@
-import React, { FunctionComponent, useRef, useState } from "react";
-import { Link } from "gatsby";
-import { useClickAway, useKey } from "react-use";
-import { WindowLocation } from "@reach/router";
+import { useRef, useState } from "react";
+import type { FunctionComponent } from "react";
+// import { useClickAway, useKey } from "react-use";
+// import { WindowLocation } from "@reach/router";
 
 import Caret from "../svgs/caret-down";
 import Cross from "../svgs/cross";
@@ -12,7 +12,7 @@ import MobileMenu from "../mobile-menu";
 import NavLink from "../nav-link";
 
 interface Props {
-  slug: WindowLocation["pathname"];
+  slug: string;
 }
 
 const wait = (amount = 0) =>
@@ -26,15 +26,15 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
   const refDropDown = useRef<HTMLLIElement>(null);
   const refDivDropdown = useRef<HTMLDivElement>(null);
 
-  useClickAway(refDropDown, () => {
-    setDropDownOpen(false);
-  });
+  // useClickAway(refDropDown, () => {
+  //   setDropDownOpen(false);
+  // });
 
-  useClickAway(refDivDropdown, () => {
-    setDropDownOpen(false);
-  });
+  // useClickAway(refDivDropdown, () => {
+  //   setDropDownOpen(false);
+  // });
 
-  useKey("Escape", () => setDropDownOpen(false));
+  // useKey("Escape", () => setDropDownOpen(false));
 
   const toggleNav = () => setNavOpen((isOpen) => !isOpen);
 
@@ -85,12 +85,12 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="shrink-0 flex items-center">
-            <Link
-              to="/"
+            <a
+              href="/"
               className="px-3 py-2 rounded-md text-white text-xl tracking-widest font-semibold leading-5 hover:text-white hover:font-bold hover:no-underline focus:outline-hidden focus:text-white focus:bg-indigo-700"
             >
               IMH
-            </Link>
+            </a>
           </div>
           <div className="flex">
             <div className="-ml-2 mr-2 flex items-center md:hidden">
@@ -109,12 +109,7 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
 
             <div className="hidden md:ml-6 md:flex md:items-center">
               {navArr.map(({ href, text }) => (
-                <NavLink
-                  as={Link}
-                  key={text}
-                  to={href}
-                  isActive={slug === href}
-                >
+                <NavLink key={text} href={href} isActive={slug === href}>
                   {text}
                   {slug === href && <span className="sr-only">(current)</span>}
                 </NavLink>
@@ -153,7 +148,7 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
                     <DropdownLink
                       className="px-4 py-2"
                       key={text}
-                      to={href}
+                      href={href}
                       isActive={slug === href}
                       role="menuitem"
                     >
@@ -170,7 +165,7 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
                   </h6>
                   <DropdownLink
                     className="px-4 py-2"
-                    to="/consulting-from-imh"
+                    href="/consulting-from-imh"
                     role="menuitem"
                   >
                     Consultancy from IMH
@@ -184,7 +179,7 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
                   </h6>
                   <DropdownLink
                     className="px-4 py-2"
-                    to="/inclusion-policy"
+                    href="/inclusion-policy"
                     role="menuitem"
                   >
                     Inclusion Policy
@@ -209,9 +204,8 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
         <div className="px-2 pt-2 pb-3 sm:px-3">
           {navArr.map(({ href, text }) => (
             <NavLink
-              as={Link}
               key={`${text}-mobile`}
-              to={href}
+              href={href}
               isActive={slug === href}
             >
               {text}
@@ -224,8 +218,7 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
           <div className="px-3 text-yellow-500 font-medium">Products</div>
           {dropdownArr.map(({ href, text }) => (
             <NavLink
-              as={Link}
-              to={href}
+              href={href}
               key={`${text}-mobile`}
               isActive={slug === href}
             >
@@ -238,8 +231,7 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
         <div className="mt-3 px-2 sm:px-3">
           <div className="px-3 text-yellow-500 font-medium">Services</div>
           <NavLink
-            as={Link}
-            to="/consulting-from-imh"
+            href="/consulting-from-imh"
             isActive={slug === "/consulting-from-imh"}
           >
             Consultancy from IMH
@@ -252,8 +244,7 @@ const Header: FunctionComponent<Props> = ({ slug }) => {
         <div className="mt-3 px-2 sm:px-3">
           <div className="px-3 text-yellow-500 font-medium">Policies</div>
           <NavLink
-            as={Link}
-            to="/inclusion-policy"
+            href="/inclusion-policy"
             isActive={slug === "/inclusion-policy"}
           >
             Inclusion Policy

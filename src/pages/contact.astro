@@ -1,0 +1,31 @@
+---
+import Map from "../components/map";
+import Layout from "../layouts/main.astro";
+
+import "mapbox-gl/dist/mapbox-gl.css";
+
+const token = import.meta.env.MAPBOX_API_TOKEN;
+---
+
+<Layout title="Contact">
+  <h1 class="text-black text-4xl">Contact Us</h1>
+  <div class="md:flex justify-between w-full relative">
+    <address class="text-gray-900 basis-[25%]">
+      <p>Off Millhead Way</p>
+      <p>8 Roach View</p>
+      <p>Purdeys Industrial Estate</p>
+      <p>Rochford</p>
+      <p>Essex</p>
+      <p>SS4 1LB</p>
+      <p>
+        Email: <a href="mailto:sales@imh.co.uk">sales@imh.co.uk</a>
+      </p>
+      <p>
+        Telephone: <a href="tel:+441702545429">01702 545429</a>
+      </p>
+    </address>
+    <div class="basis-[75%]">
+      <Map token={token} client:load />
+    </div>
+  </div>
+</Layout>

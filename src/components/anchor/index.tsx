@@ -1,4 +1,4 @@
-import React, { AnchorHTMLAttributes, FunctionComponent } from "react";
+import type { AnchorHTMLAttributes, FunctionComponent } from "react";
 import cx from "clsx";
 
 const Anchor: FunctionComponent<AnchorHTMLAttributes<HTMLAnchorElement>> = ({
