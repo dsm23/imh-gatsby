@@ -39,7 +39,7 @@ jobs:
         with:
           local-dir: ./dist/
           server-dir: ${{ vars.SERVER_DIR }}
-          dangerous-clean-slate: true
+          # dangerous-clean-slate: true
           server: ftp.imh.co.uk
           username: ${{ vars.USERNAME }}
           password: ${{ secrets.PASSWORD }}
